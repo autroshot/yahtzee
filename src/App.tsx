@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col } from 'react-bootstrap';
+import Info from './components/info';
+import RollDices from './components/rollDices';
+import ScoreCard from './components/scoreCard';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Row>
+        <Col>
+          <h1>요트 다이스</h1>
+        </Col>
+      </Row>
+      <Info></Info>
+      <RollDices></RollDices>
+      <Row>
+        <Col>
+          <h3>점수표</h3>
+        </Col>
+      </Row>
+      <ScoreCard></ScoreCard>
+    </Container>
   );
 }
 
-export default App;
+// function getRandonDiceValue() {
+//   return Math.floor(1 + Math.random() * 6);
+// }
