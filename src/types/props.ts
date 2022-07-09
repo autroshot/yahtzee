@@ -1,7 +1,5 @@
-import { Dice } from './dice';
-
 export interface DiceRollingProps {
-  rolledDices: Dice[] | undefined;
+  rolledDices: number[] | undefined;
 }
 
 export interface DiceProps {
