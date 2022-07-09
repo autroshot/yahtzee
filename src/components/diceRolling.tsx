@@ -1,7 +1,7 @@
 import { Button, Col, Row } from 'react-bootstrap';
-import { Dice } from '../types/dice';
+import { DiceRollingProps } from '../types/props';
 
-export default function DiceRolling(props: props) {
+export default function DiceRolling(props: DiceRollingProps) {
   return (
     <>
       <Row>
@@ -77,8 +77,4 @@ export default function DiceRolling(props: props) {
       </Row>
     </>
   );
-}
-
-interface props {
-  rolledDices: Dice[] | undefined;
 }
