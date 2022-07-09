@@ -5,10 +5,9 @@ import Info from './components/Info';
 import ScoreCard from './components/ScoreCard';
 import DiceRolling from './components/DiceRolling';
 import { useState } from 'react';
-import { Dice } from './types/dice';
 
 export default function App() {
-  const [rolledDices, setRolledDices] = useState<Dice[]>();
+  const [rolledDices, setRolledDices] = useState<number[]>();
 
   return (
     <Container className="app">
