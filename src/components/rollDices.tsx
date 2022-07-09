@@ -12,6 +12,11 @@ export default function RollDices() {
       </Row>
       <Row>
         <Col>
+          <span>굴릴 주사위:</span>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
           <button className="dice">
             <img src="images/dice-1.png" alt="주사위 1" />
           </button>
@@ -35,16 +40,20 @@ export default function RollDices() {
       <Row>
         <Col>
           <Button variant="secondary" className="action">
-            주사위 내리기
+            선택된 주사위 내리기
           </Button>
           <Button variant="secondary" className="action">
-            주사위 올리기
+            선택된 주사위 올리기
           </Button>
         </Col>
       </Row>
       <Row>
         <Col>
-          보관된 주사위:
+          <span>보관된 주사위:</span>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
           <button className="dice">
             <img src="images/dice-1.png" alt="주사위 1" />
           </button>
