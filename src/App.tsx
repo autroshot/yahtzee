@@ -4,8 +4,12 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Info from './components/info';
 import ScoreCard from './components/scoreCard';
 import DiceRolling from './components/diceRolling';
+import { useState } from 'react';
+import { Dice } from './types/dice';
 
 export default function App() {
+  const [rolledDices, setRolledDices] = useState<Dice[]>();
+
   return (
     <Container className="app">
       <Row>
