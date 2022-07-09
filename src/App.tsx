@@ -7,7 +7,7 @@ import ScoreCard from './components/scoreCard';
 
 export default function App() {
   return (
-    <Container>
+    <Container className="app">
       <Row>
         <Col>
           <h1>요트 다이스</h1>
