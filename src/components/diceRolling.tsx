@@ -1,5 +1,6 @@
 import { Button, Col, Row } from 'react-bootstrap';
 import { DiceRollingProps } from '../types/props';
+import Dice from './Dice';
 
 export default function DiceRolling(props: DiceRollingProps) {
   return (
@@ -18,24 +19,12 @@ export default function DiceRolling(props: DiceRollingProps) {
       </Row>
       <Row>
         <Col>
-          <button className="dice">
-            <img src="images/dice-1.png" alt="주사위 1" />
-          </button>
-          <button className="dice">
-            <img src="images/dice-2.png" alt="주사위 2" />
-          </button>
-          <button className="dice">
-            <img src="images/dice-3.png" alt="주사위 3" />
-          </button>
-          <button className="dice">
-            <img src="images/dice-4.png" alt="주사위 4" />
-          </button>
-          <button className="dice">
-            <img src="images/dice-5.png" alt="주사위 5" />
-          </button>
-          <button className="dice">
-            <img src="images/dice-6.png" alt="주사위 6" />
-          </button>
+          <Dice value="3" />
+          <Dice value="5" />
+          <Dice value="6" />
+          <Dice value="1" />
+          <Dice value="2" />
+          <Dice value="1" />
         </Col>
       </Row>
       <Row>

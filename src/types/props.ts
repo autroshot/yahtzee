@@ -5,5 +5,5 @@ export interface DiceRollingProps {
 }
 
 export interface DiceProps {
-  value: number;
+  value: string;
 }
