@@ -1,9 +1,9 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
-import Info from './components/info';
-import ScoreCard from './components/scoreCard';
-import DiceRolling from './components/diceRolling';
+import Info from './components/Info';
+import ScoreCard from './components/ScoreCard';
+import DiceRolling from './components/DiceRolling';
 import { useState } from 'react';
 import { Dice } from './types/dice';
 
