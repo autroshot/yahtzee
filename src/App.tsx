@@ -26,6 +26,10 @@ export default function App() {
       <ScoreCard />
     </Container>
   );
+
+  function handleRollDicesClick() {
+    console.log('handleRollDicesClick');
+  }
 }
 
 // function getRandonDiceValue() {
