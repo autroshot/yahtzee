@@ -7,7 +7,7 @@ import DiceRolling from './components/DiceRolling';
 import { useState } from 'react';
 
 export default function App() {
-  const [rolledDices, setRolledDices] = useState<number[]>();
+  const [rolledDices, setRolledDices] = useState<number[]>([5, 2, 3, 3, 1, 6]);
 
   return (
     <Container className="app">

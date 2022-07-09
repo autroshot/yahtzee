@@ -19,12 +19,9 @@ export default function DiceRolling(props: DiceRollingProps) {
       </Row>
       <Row>
         <Col>
-          <Dice value="3" />
-          <Dice value="5" />
-          <Dice value="6" />
-          <Dice value="1" />
-          <Dice value="2" />
-          <Dice value="1" />
+          {props.rolledDices?.map((value) => (
+            <Dice value={value.toString()} />
+          ))}
         </Col>
       </Row>
       <Row>
