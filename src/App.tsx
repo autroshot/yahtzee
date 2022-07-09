@@ -18,7 +18,7 @@ export default function App() {
         </Col>
       </Row>
       <Info></Info>
-      <DiceRolling></DiceRolling>
+      <DiceRolling rolledDices={rolledDices} />
       <Row>
         <Col>
           <h3>점수표</h3>
