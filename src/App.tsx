@@ -17,14 +17,14 @@ export default function App() {
           <h1>요트 다이스</h1>
         </Col>
       </Row>
-      <Info></Info>
+      <Info />
       <DiceRolling rolledDices={rolledDices} />
       <Row>
         <Col>
           <h3>점수표</h3>
         </Col>
       </Row>
-      <ScoreCard></ScoreCard>
+      <ScoreCard />
     </Container>
   );
 }
