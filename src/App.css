@@ -11,3 +11,14 @@
   color: white;
   background-color: gray;
 }
+
+.diceButton {
+  border: none;
+  background-color: transparent;
+  padding: 0rem;
+  margin: 0.5rem;
+}
+
+.diceButton img {
+  width: 3rem;
+}

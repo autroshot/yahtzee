@@ -1,4 +1,4 @@
-import { Button, Col, Row } from 'react-bootstrap';
+import { Button, Col, Row, Image } from 'react-bootstrap';
 
 export default function RollDices() {
   return (
@@ -10,12 +10,24 @@ export default function RollDices() {
       </Row>
       <Row>
         <Col>
-          <Button>1</Button>
-          <Button>1</Button>
-          <Button>1</Button>
-          <Button>1</Button>
-          <Button>1</Button>
-          <Button>1</Button>
+          <button className="diceButton">
+            <img src="images/dice-1.png" alt="주사위 1" />
+          </button>
+          <button className="diceButton">
+            <img src="images/dice-2.png" alt="주사위 2" />
+          </button>
+          <button className="diceButton">
+            <img src="images/dice-3.png" alt="주사위 3" />
+          </button>
+          <button className="diceButton">
+            <img src="images/dice-4.png" alt="주사위 4" />
+          </button>
+          <button className="diceButton">
+            <img src="images/dice-5.png" alt="주사위 5" />
+          </button>
+          <button className="diceButton">
+            <img src="images/dice-6.png" alt="주사위 6" />
+          </button>
         </Col>
       </Row>
       <Row>
@@ -27,12 +39,24 @@ export default function RollDices() {
       <Row>
         <Col>
           보관된 주사위:
-          <Button>1</Button>
-          <Button>1</Button>
-          <Button>1</Button>
-          <Button>1</Button>
-          <Button>1</Button>
-          <Button>1</Button>
+          <button className="diceButton">
+            <img src="images/dice-1.png" alt="주사위 1" />
+          </button>
+          <button className="diceButton">
+            <img src="images/dice-2.png" alt="주사위 2" />
+          </button>
+          <button className="diceButton">
+            <img src="images/dice-3.png" alt="주사위 3" />
+          </button>
+          <button className="diceButton">
+            <img src="images/dice-4.png" alt="주사위 4" />
+          </button>
+          <button className="diceButton">
+            <img src="images/dice-5.png" alt="주사위 5" />
+          </button>
+          <button className="diceButton">
+            <img src="images/dice-6.png" alt="주사위 6" />
+          </button>
         </Col>
       </Row>
     </>
