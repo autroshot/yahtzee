@@ -1,6 +1,6 @@
 import { Button, Col, Row } from 'react-bootstrap';
 
-export default function RollDices() {
+export default function DiceRolling() {
   return (
     <>
       <Row>

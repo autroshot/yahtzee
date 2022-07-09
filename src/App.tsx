@@ -2,8 +2,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import Info from './components/info';
-import RollDices from './components/rollDices';
 import ScoreCard from './components/scoreCard';
+import DiceRolling from './components/diceRolling';
 
 export default function App() {
   return (
@@ -14,7 +14,7 @@ export default function App() {
         </Col>
       </Row>
       <Info></Info>
-      <RollDices></RollDices>
+      <DiceRolling></DiceRolling>
       <Row>
         <Col>
           <h3>점수표</h3>
