@@ -31,11 +31,11 @@ export default function ScoreCard() {
                 <td>헥사</td>
                 <td>0</td>
               </tr>
-              <tr className="totalScoreRow">
+              <tr className="total-score">
                 <td>상단 점수의 합이 63점 이상이라면</td>
                 <td>0/63</td>
               </tr>
-              <tr className="totalScoreRow">
+              <tr className="total-score">
                 <td>상단 보너스 +35점</td>
                 <td>0</td>
               </tr>
@@ -45,19 +45,19 @@ export default function ScoreCard() {
               </tr>
               <tr>
                 <td>포커</td>
-                <td>24</td>
+                <td>0</td>
               </tr>
               <tr>
                 <td>풀 하우스</td>
-                <td>20</td>
+                <td>0</td>
               </tr>
               <tr>
                 <td>스몰 스트레이트</td>
-                <td>15</td>
+                <td>0</td>
               </tr>
               <tr>
                 <td>라지 스트레이트</td>
-                <td>30</td>
+                <td>0</td>
               </tr>
               <tr>
                 <td>요트</td>
@@ -65,7 +65,7 @@ export default function ScoreCard() {
               </tr>
               <tr className="totalScoreRow">
                 <td>총점</td>
-                <td>218</td>
+                <td>0</td>
               </tr>
             </tbody>
           </Table>

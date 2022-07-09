@@ -7,18 +7,22 @@
   font-family: 'NanumGothicBold';
 }
 
-.totalScoreRow {
+.total-score {
   color: white;
   background-color: gray;
 }
 
-.diceButton {
+.dice {
   border: none;
   background-color: transparent;
   padding: 0rem;
   margin: 0.5rem;
 }
 
-.diceButton img {
+.dice img {
   width: 3rem;
+}
+
+.action {
+  margin: 0.5rem;
 }
