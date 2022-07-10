@@ -1,8 +1,10 @@
+import { Dice } from './dice';
+
 export interface DiceRollingProps {
-  rolledDices: number[] | undefined;
+  rolledDices: Dice[] | undefined;
   onRollDicesClick: () => void;
 }
 
 export interface DiceProps {
-  value: string;
+  value: number;
 }
