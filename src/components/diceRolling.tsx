@@ -7,7 +7,11 @@ export default function DiceRolling(props: DiceRollingProps) {
     <>
       <Row>
         <Col>
-          <Button variant="secondary" className="action">
+          <Button
+            variant="secondary"
+            className="action"
+            onClick={props.onRollDicesClick}
+          >
             주사위 굴리기
           </Button>
         </Col>
