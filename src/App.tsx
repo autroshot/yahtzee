@@ -8,10 +8,7 @@ import { useState } from 'react';
 import { Dice } from './types/dice';
 
 export default function App() {
-  const [rolledDices, setRolledDices] = useState<Dice[]>([
-    { key: 1, value: 5 },
-    { key: 2, value: 1 },
-  ]);
+  const [rolledDices, setRolledDices] = useState<Dice[]>();
 
   return (
     <Container className="app">
@@ -36,9 +33,15 @@ export default function App() {
 
   function handleRollDicesClick() {
     console.log('handleRollDicesClick');
+
+    const dices: Dice[] = [];
+    for (let i = 1; i <= 6; i++) {
+      dices.push({ key: i, value: getRandomDiceValue() });
+    }
+    console.log(dices);
   }
 }
 
-// function getRandonDiceValue() {
-//   return Math.floor(1 + Math.random() * 6);
-// }
+function getRandomDiceValue() {
+  return Math.floor(1 + Math.random() * 6);
+}
