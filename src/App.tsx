@@ -59,3 +59,11 @@ function createInitialDices() {
 function getRandomDiceValue() {
   return Math.floor(1 + Math.random() * 6);
 }
+
+function sortDices(dices: Dice[]): Dice[] {
+  const result = [...dices];
+
+  result.sort((a, b) => a.value - b.value);
+
+  return result;
+}
