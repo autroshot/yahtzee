@@ -42,12 +42,16 @@ export default function App() {
       const dices = createInitialDices();
 
       setRolledDices(sortDices(dices));
+      setRollCount(rollCount + 1);
     } else {
       const newRolledDices = rolledDices.map(function (dice): Dice {
         return { key: dice.key, value: getRandomDiceValue() };
       });
 
-      setRolledDices(sortDices(newRolledDices));
+      if (rollCount < 3) {
+        setRolledDices(sortDices(newRolledDices));
+        setRollCount(rollCount + 1);
+      }
     }
   }
 }
