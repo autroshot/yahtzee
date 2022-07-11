@@ -32,10 +32,9 @@ export default function App() {
   );
 
   function handleRollDicesClick() {
-    console.log('handleRollDicesClick');
-
     const dices = createInitialDices();
-    console.log(dices);
+
+    setRolledDices(dices);
   }
 }
 
