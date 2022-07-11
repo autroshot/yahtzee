@@ -16,6 +16,7 @@ export default function App() {
   const [rollCount, setRollCount] = useState(0);
   const [rolledDices, setRolledDices] = useState<Dice[]>();
   const [keptDices, setKeptDices] = useState<Dice[]>();
+  const [selectedDices, setSelectedDices] = useState<Dice[]>();
 
   return (
     <Container className="app">
