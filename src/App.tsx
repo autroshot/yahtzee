@@ -6,6 +6,11 @@ import ScoreCard from './components/ScoreCard';
 import DiceRolling from './components/DiceRolling';
 import { useState } from 'react';
 import { Dice } from './types/dice';
+import {
+  createInitialDices,
+  getRandomDiceValue,
+  sortDices,
+} from './utils/dice';
 
 export default function App() {
   const [rolledDices, setRolledDices] = useState<Dice[]>();
@@ -44,26 +49,4 @@ export default function App() {
       setRolledDices(sortDices(newRolledDices));
     }
   }
-}
-
-function createInitialDices() {
-  const result: Dice[] = [];
-
-  for (let i = 1; i <= 6; i++) {
-    result.push({ key: i, value: getRandomDiceValue() });
-  }
-
-  return result;
-}
-
-function getRandomDiceValue() {
-  return Math.floor(1 + Math.random() * 6);
-}
-
-function sortDices(dices: Dice[]): Dice[] {
-  const result = [...dices];
-
-  result.sort((a, b) => a.value - b.value);
-
-  return result;
 }
