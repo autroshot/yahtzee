@@ -35,13 +35,13 @@ export default function App() {
     if (!rolledDices) {
       const dices = createInitialDices();
 
-      setRolledDices(dices);
+      setRolledDices(sortDices(dices));
     } else {
       const newRolledDices = rolledDices.map(function (dice): Dice {
         return { key: dice.key, value: getRandomDiceValue() };
       });
 
-      setRolledDices(newRolledDices);
+      setRolledDices(sortDices(newRolledDices));
     }
   }
 }
