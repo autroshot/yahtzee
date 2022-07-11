@@ -29,6 +29,7 @@ export default function App() {
       <DiceRolling
         rolledDices={rolledDices}
         keptDices={keptDices}
+        selectedDices={selectedDices}
         onRollDicesClick={handleRollDicesClick}
       />
       <Row>
