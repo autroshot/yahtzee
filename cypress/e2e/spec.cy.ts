@@ -61,10 +61,7 @@ describe('주사위 굴리기', () => {
     cy.get('[data-cy="rolled-dices"]')
       .children()
       .then(($beforeDices) => {
-        const beforeDiceValues: number[] = [];
-        for (let i = 0; i < 6; i++) {
-          beforeDiceValues.push(+($beforeDices[i].dataset.cyValue as string));
-        }
+        const beforeDiceValues = getDiceValues($beforeDices);
 
         cy.contains('주사위 굴리기').click();
         cy.contains('주사위 굴리기').click();
@@ -72,12 +69,20 @@ describe('주사위 굴리기', () => {
         cy.get('[data-cy="rolled-dices"]')
           .children()
           .then(($afterDices) => {
-            const afterDiceValues: number[] = [];
-            for (let i = 0; i < 6; i++) {
-              afterDiceValues.push(+($afterDices[i].dataset.cyValue as string));
-            }
+            const afterDiceValues = getDiceValues($afterDices);
+
             expect(afterDiceValues).to.not.deep.equal(beforeDiceValues);
           });
       });
   });
 });
+
+function getDiceValues(dices: JQuery<HTMLElement>): number[] {
+  let result: number[] = [];
+
+  for (let i = 0; i < dices.length; i++) {
+    result.push(+(dices[i].dataset.cyValue as string));
+  }
+
+  return result;
+}
