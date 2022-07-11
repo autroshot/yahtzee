@@ -13,6 +13,7 @@ import {
 } from './utils/dice';
 
 export default function App() {
+  const [rollCount, setRollCount] = useState(0);
   const [rolledDices, setRolledDices] = useState<Dice[]>();
 
   return (
