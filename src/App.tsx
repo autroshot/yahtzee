@@ -34,12 +34,19 @@ export default function App() {
   function handleRollDicesClick() {
     console.log('handleRollDicesClick');
 
-    const dices: Dice[] = [];
-    for (let i = 1; i <= 6; i++) {
-      dices.push({ key: i, value: getRandomDiceValue() });
-    }
+    const dices = createInitialDices();
     console.log(dices);
   }
+}
+
+function createInitialDices() {
+  const result: Dice[] = [];
+
+  for (let i = 1; i <= 6; i++) {
+    result.push({ key: i, value: getRandomDiceValue() });
+  }
+
+  return result;
 }
 
 function getRandomDiceValue() {
