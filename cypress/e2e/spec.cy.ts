@@ -1,7 +1,5 @@
 /// <reference types="cypress" />
 
-import { json } from 'stream/consumers';
-
 describe('초깃값', () => {
   it('접속', () => {
     cy.visit('/');
