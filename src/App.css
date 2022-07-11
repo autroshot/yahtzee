@@ -20,9 +20,18 @@
 }
 
 .dice img {
-  width: 3rem;
+  width: 3.5rem;
 }
 
 .action {
   margin: 0.5rem;
+}
+
+.dices-container {
+  height: 5.5rem;
+}
+
+[data-selected] {
+  padding: 0.1rem;
+  border: 0.2rem dashed gray;
 }
