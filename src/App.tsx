@@ -27,6 +27,7 @@ export default function App() {
       <Info rollCount={rollCount} />
       <DiceRolling
         rolledDices={rolledDices}
+        keptDices={keptDices}
         onRollDicesClick={handleRollDicesClick}
       />
       <Row>
