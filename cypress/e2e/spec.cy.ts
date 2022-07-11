@@ -1,5 +1,7 @@
 /// <reference types="cypress" />
 
+import { json } from 'stream/consumers';
+
 describe('초깃값', () => {
   it('접속', () => {
     cy.visit('/');
@@ -60,18 +62,32 @@ describe('주사위 굴리기', () => {
 
     cy.get('[data-cy="rolled-dices"]')
       .children()
-      .then(($beforeDices) => {
-        const beforeDiceValues = getDiceValues($beforeDices);
+      .then(($firstDices) => {
+        const firstDiceValues = getDiceValues($firstDices);
 
-        cy.contains('주사위 굴리기').click();
         cy.contains('주사위 굴리기').click();
 
         cy.get('[data-cy="rolled-dices"]')
           .children()
-          .then(($afterDices) => {
-            const afterDiceValues = getDiceValues($afterDices);
+          .then(($secondDices) => {
+            const secondDiceValues = getDiceValues($secondDices);
 
-            expect(afterDiceValues).to.not.deep.equal(beforeDiceValues);
+            cy.contains('주사위 굴리기').click();
+
+            cy.get('[data-cy="rolled-dices"]')
+              .children()
+              .then(($thirdDices) => {
+                const thirdDiceValues = getDiceValues($thirdDices);
+
+                const isChangeExist = !(
+                  JSON.stringify(firstDiceValues) ===
+                    JSON.stringify(secondDiceValues) &&
+                  JSON.stringify(secondDiceValues) ===
+                    JSON.stringify(thirdDiceValues)
+                );
+
+                expect(isChangeExist).to.equal(true);
+              });
           });
       });
   });
