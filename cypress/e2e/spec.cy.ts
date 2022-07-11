@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe('초깃값', () => {
   it('접속', () => {
     cy.visit('/');
@@ -55,5 +57,27 @@ describe('주사위 굴리기', () => {
 
   it('주사위 값 변화 확인', () => {
     cy.contains('주사위 굴리기').click();
+
+    cy.get('[data-cy="rolled-dices"]')
+      .children()
+      .then(($beforeDices) => {
+        const beforeDiceValues: number[] = [];
+        for (let i = 0; i < 6; i++) {
+          beforeDiceValues.push(+($beforeDices[i].dataset.cyValue as string));
+        }
+
+        cy.contains('주사위 굴리기').click();
+        cy.contains('주사위 굴리기').click();
+
+        cy.get('[data-cy="rolled-dices"]')
+          .children()
+          .then(($afterDices) => {
+            const afterDiceValues: number[] = [];
+            for (let i = 0; i < 6; i++) {
+              afterDiceValues.push(+($afterDices[i].dataset.cyValue as string));
+            }
+            expect(afterDiceValues).to.not.deep.equal(beforeDiceValues);
+          });
+      });
   });
 });
