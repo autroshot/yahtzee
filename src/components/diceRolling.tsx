@@ -23,9 +23,11 @@ export default function DiceRolling(props: DiceRollingProps) {
       </Row>
       <Row>
         <Col>
-          {props.rolledDices?.map((dice) => (
-            <Dice key={dice.key} value={dice.value} />
-          ))}
+          <div data-cy="rolled-dices">
+            {props.rolledDices?.map((dice) => (
+              <Dice key={dice.key} value={dice.value} />
+            ))}
+          </div>
         </Col>
       </Row>
       <Row>
