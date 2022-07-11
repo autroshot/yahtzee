@@ -1,6 +1,7 @@
 import { Col, Row } from 'react-bootstrap';
+import { InfoProps } from '../types/props';
 
-export default function Info() {
+export default function Info(props: InfoProps) {
   return (
     <>
       <Row>

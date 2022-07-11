@@ -8,3 +8,7 @@ export interface DiceRollingProps {
 export interface DiceProps {
   value: number;
 }
+
+export interface InfoProps {
+  rollCount: number;
+}

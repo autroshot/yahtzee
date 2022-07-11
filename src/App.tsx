@@ -23,7 +23,7 @@ export default function App() {
           <h1>요트 다이스</h1>
         </Col>
       </Row>
-      <Info />
+      <Info rollCount={rollCount} />
       <DiceRolling
         rolledDices={rolledDices}
         onRollDicesClick={handleRollDicesClick}
