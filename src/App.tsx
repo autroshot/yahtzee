@@ -32,9 +32,17 @@ export default function App() {
   );
 
   function handleRollDicesClick() {
-    const dices = createInitialDices();
+    if (!rolledDices) {
+      const dices = createInitialDices();
 
-    setRolledDices(dices);
+      setRolledDices(dices);
+    } else {
+      const newRolledDices = rolledDices.map(function (dice): Dice {
+        return { key: dice.key, value: getRandomDiceValue() };
+      });
+
+      setRolledDices(newRolledDices);
+    }
   }
 }
 
