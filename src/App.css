@@ -15,8 +15,9 @@
 .dice {
   border: none;
   background-color: transparent;
-  padding: 0rem;
-  margin: 0.5rem;
+  padding: 0.1rem;
+  margin: 0.4rem;
+  /* border: 0.2rem dashed white; */
 }
 
 .dice img {
@@ -27,11 +28,19 @@
   margin: 0.5rem;
 }
 
-.dices-container {
-  height: 5.5rem;
+[data-selected] {
+  margin: 0.2rem;
+  border: 0.2rem dashed gray;
 }
 
-[data-selected] {
-  padding: 0.1rem;
-  border: 0.2rem dashed gray;
+@media screen and (min-width: 576px) {
+  .dices-container {
+    height: 4.5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .dices-container {
+    height: 9rem;
+  }
 }
