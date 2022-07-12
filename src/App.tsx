@@ -42,7 +42,6 @@ export default function App() {
       setRollCount(rollCount + 1);
     } else {
       const rolledDices = rollDices(dices);
-      console.log(rolledDices);
 
       if (rollCount < 3) {
         setDices(sortDices(rolledDices));
