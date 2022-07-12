@@ -45,4 +45,8 @@ export default function App() {
       }
     }
   }
+
+  function handleDiceClick(key: number) {
+    console.log(`#${key} dice clicked`);
+  }
 }
