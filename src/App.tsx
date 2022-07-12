@@ -29,6 +29,7 @@ export default function App() {
         dices={dices}
         onRollDicesClick={handleRollDicesClick}
         onDiceClick={handleDiceClick}
+        onMoveDicesClick={handleMoveDicesClick}
       />
       <Row>
         <Col>

@@ -4,6 +4,7 @@ export interface DiceRollingProps {
   dices: Dice[] | undefined;
   onRollDicesClick: () => void;
   onDiceClick: (key: number) => void;
+  onMoveDicesClick: (direction: string) => void;
 }
 
 export interface DiceProps {

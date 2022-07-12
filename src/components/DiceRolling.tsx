@@ -40,10 +40,18 @@ export default function DiceRolling(props: DiceRollingProps) {
       </Row>
       <Row>
         <Col>
-          <Button variant="secondary" className="action">
+          <Button
+            variant="secondary"
+            className="action"
+            onClick={() => props.onMoveDicesClick('up')}
+          >
             선택된 주사위 내리기
           </Button>
-          <Button variant="secondary" className="action">
+          <Button
+            variant="secondary"
+            className="action"
+            onClick={() => props.onMoveDicesClick('down')}
+          >
             선택된 주사위 올리기
           </Button>
         </Col>
