@@ -6,6 +6,7 @@ export default function Dice(props: DiceProps) {
       className="dice"
       data-cy-value={props.value}
       data-selected={props.selected ? '' : null}
+      onClick={props.onDiceClick}
     >
       <img
         src={`images/dice-${props.value}.png`}

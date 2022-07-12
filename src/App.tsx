@@ -20,7 +20,11 @@ export default function App() {
         </Col>
       </Row>
       <Info rollCount={rollCount} />
-      <DiceRolling dices={dices} onRollDicesClick={handleRollDicesClick} />
+      <DiceRolling
+        dices={dices}
+        onRollDicesClick={handleRollDicesClick}
+        onDiceClick={handleDiceClick}
+      />
       <Row>
         <Col>
           <h3>점수표</h3>

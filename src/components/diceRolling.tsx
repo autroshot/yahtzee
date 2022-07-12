@@ -31,6 +31,7 @@ export default function DiceRolling(props: DiceRollingProps) {
                 key={dice.key}
                 value={dice.value}
                 selected={dice.selected}
+                onDiceClick={() => props.onDiceClick(dice.key)}
               />
             ))}
           </div>
@@ -59,6 +60,7 @@ export default function DiceRolling(props: DiceRollingProps) {
                 key={dice.key}
                 value={dice.value}
                 selected={dice.selected}
+                onDiceClick={() => props.onDiceClick(dice.key)}
               />
             ))}
           </div>
