@@ -61,3 +61,29 @@ export function changeKeptOfSelectedDices(kept: boolean, dices: Dice[]) {
     return dice;
   });
 }
+
+export function getKeptOfSelectedDice(dices: Dice[]): boolean {
+  const foundDice = dices.find((dice) => dice.selected) as Dice;
+
+  return foundDice.kept;
+}
+
+export function getDeselectedOtherDices(key: number, dices: Dice[]): Dice[] {
+  return dices.map((dice) => {
+    if (dice.key !== key) {
+      return {
+        key: dice.key,
+        value: dice.value,
+        kept: dice.kept,
+        selected: false,
+      };
+    } else {
+      return {
+        key: dice.key,
+        value: dice.value,
+        kept: dice.kept,
+        selected: true,
+      };
+    }
+  });
+}

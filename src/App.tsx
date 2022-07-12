@@ -12,6 +12,8 @@ import {
   rollDices,
   sortDices,
   toggleDiceSelected,
+  getKeptOfSelectedDice,
+  getDeselectedOtherDices,
 } from './utils/dice';
 
 export default function App() {
@@ -59,6 +61,16 @@ export default function App() {
 
   function handleDiceClick(key: number) {
     if (!dices) return;
+    if (dices.every((dice) => !dice.selected)) {
+      setDices(toggleDiceSelected(key, dices));
+      return;
+    }
+
+    const clickedDice = dices.find((dice) => dice.key === key) as Dice;
+    if (clickedDice.kept !== getKeptOfSelectedDice(dices)) {
+      setDices(getDeselectedOtherDices(key, dices));
+      return;
+    }
 
     setDices(toggleDiceSelected(key, dices));
   }
