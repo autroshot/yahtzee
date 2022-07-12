@@ -41,7 +41,7 @@ export default function App() {
       setDices(sortDices(dices));
       setRollCount(rollCount + 1);
     } else {
-      const newRolledDices = dices.map(function (dice): Dice {
+      const rolledDices = dices.map(function (dice): Dice {
         return {
           key: dice.key,
           value: getRandomDiceValue(),
@@ -51,7 +51,7 @@ export default function App() {
       });
 
       if (rollCount < 3) {
-        setDices(sortDices(newRolledDices));
+        setDices(sortDices(rolledDices));
         setRollCount(rollCount + 1);
       }
     }
