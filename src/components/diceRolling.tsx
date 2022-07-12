@@ -3,6 +3,8 @@ import { DiceRollingProps } from '../types/props';
 import Dice from './Dice';
 
 export default function DiceRolling(props: DiceRollingProps) {
+  const keptDices = props.dices?.filter((dice) => dice.kept);
+
   return (
     <>
       <Row>
@@ -24,11 +26,11 @@ export default function DiceRolling(props: DiceRollingProps) {
       <Row>
         <Col>
           <div className="dices-container" data-cy="rolled-dices">
-            {props.rolledDices?.map((dice) => (
+            {props.dices?.map((dice) => (
               <Dice
                 key={dice.key}
                 value={dice.value}
-                selected={props.selectedDices?.includes(dice)}
+                selected={dice.selected}
               />
             ))}
           </div>
@@ -52,8 +54,12 @@ export default function DiceRolling(props: DiceRollingProps) {
       <Row>
         <Col>
           <div className="dices-container" data-cy="kept-dices">
-            {props.keptDices?.map((dice) => (
-              <Dice key={dice.key} value={dice.value} selected={true} />
+            {keptDices?.map((dice) => (
+              <Dice
+                key={dice.key}
+                value={dice.value}
+                selected={dice.selected}
+              />
             ))}
           </div>
         </Col>

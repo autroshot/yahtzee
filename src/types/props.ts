@@ -1,9 +1,7 @@
 import { Dice } from './dice';
 
 export interface DiceRollingProps {
-  rolledDices: Dice[] | undefined;
-  keptDices: Dice[] | undefined;
-  selectedDices: Dice[] | undefined;
+  dices: Dice[] | undefined;
   onRollDicesClick: () => void;
 }
 

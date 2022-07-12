@@ -14,9 +14,7 @@ import {
 
 export default function App() {
   const [rollCount, setRollCount] = useState(0);
-  const [rolledDices, setRolledDices] = useState<Dice[]>();
-  const [keptDices, setKeptDices] = useState<Dice[]>();
-  const [selectedDices, setSelectedDices] = useState<Dice[]>();
+  const [dices, setDices] = useState<Dice[]>();
 
   return (
     <Container className="app">
@@ -26,12 +24,7 @@ export default function App() {
         </Col>
       </Row>
       <Info rollCount={rollCount} />
-      <DiceRolling
-        rolledDices={rolledDices}
-        keptDices={keptDices}
-        selectedDices={selectedDices}
-        onRollDicesClick={handleRollDicesClick}
-      />
+      <DiceRolling dices={dices} onRollDicesClick={handleRollDicesClick} />
       <Row>
         <Col>
           <h3>점수표</h3>
@@ -42,18 +35,23 @@ export default function App() {
   );
 
   function handleRollDicesClick() {
-    if (!rolledDices) {
+    if (!dices) {
       const dices = createInitialDices();
 
-      setRolledDices(sortDices(dices));
+      setDices(sortDices(dices));
       setRollCount(rollCount + 1);
     } else {
-      const newRolledDices = rolledDices.map(function (dice): Dice {
-        return { key: dice.key, value: getRandomDiceValue() };
+      const newRolledDices = dices.map(function (dice): Dice {
+        return {
+          key: dice.key,
+          value: getRandomDiceValue(),
+          kept: false,
+          selected: false,
+        };
       });
 
       if (rollCount < 3) {
-        setRolledDices(sortDices(newRolledDices));
+        setDices(sortDices(newRolledDices));
         setRollCount(rollCount + 1);
       }
     }
