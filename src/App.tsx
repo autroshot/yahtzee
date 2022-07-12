@@ -63,12 +63,20 @@ export default function App() {
   }
 
   function handleMoveDicesClick(direction: string) {
+    if (!dices) return;
+
     switch (direction) {
       case 'up':
-        console.log('MoveDices: up');
         break;
       case 'down':
-        console.log('MoveDices: down');
+        setDices(
+          dices.map((dice) => {
+            if (!dice.selected) return dice;
+
+            dice.kept = true;
+            return dice;
+          })
+        );
         break;
     }
   }
