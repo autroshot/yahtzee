@@ -91,6 +91,26 @@ describe('주사위 굴리기', () => {
   });
 });
 
+describe('주사위 선택하기', () => {
+  beforeEach(() => {
+    cy.visit('/');
+  });
+
+  it('선택된 주사위 표시하기', () => {
+    cy.contains('주사위 굴리기').click();
+
+    cy.get('[data-cy="rolled-dices"] button')
+      .first()
+      .click()
+      .should('have.attr', 'data-selected');
+
+    cy.get('[data-cy="rolled-dices"] button')
+      .last()
+      .click()
+      .should('have.attr', 'data-selected');
+  });
+});
+
 function getDiceValues(dices: JQuery<HTMLElement>): number[] {
   let result: number[] = [];
 
