@@ -26,3 +26,14 @@ export function sortDices(dices: Dice[]): Dice[] {
 
   return result;
 }
+
+export function rollDices(dices: Dice[]) {
+  return dices.map(function (dice): Dice {
+    return {
+      key: dice.key,
+      value: getRandomDiceValue(),
+      kept: false,
+      selected: false,
+    };
+  });
+}

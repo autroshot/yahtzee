@@ -6,11 +6,7 @@ import ScoreCard from './components/ScoreCard';
 import DiceRolling from './components/DiceRolling';
 import { useState } from 'react';
 import { Dice } from './types/dice';
-import {
-  createInitialDices,
-  getRandomDiceValue,
-  sortDices,
-} from './utils/dice';
+import { createInitialDices, rollDices, sortDices } from './utils/dice';
 
 export default function App() {
   const [rollCount, setRollCount] = useState(0);
@@ -49,15 +45,4 @@ export default function App() {
       }
     }
   }
-}
-
-function rollDices(dices: Dice[]) {
-  return dices.map(function (dice): Dice {
-    return {
-      key: dice.key,
-      value: getRandomDiceValue(),
-      kept: false,
-      selected: false,
-    };
-  });
 }
