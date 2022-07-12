@@ -51,8 +51,17 @@ export default function App() {
   }
 
   function handleDiceClick(key: number) {
-    console.log(`#${key} dice clicked`);
-    const foundDice = dices?.find((dice) => dice.key === key);
-    console.log(foundDice);
+    if (!dices) return;
+
+    const newDices = [...(dices as Dice[])];
+
+    for (let i = 0; i < newDices.length; i++) {
+      if (newDices[i].key !== key) continue;
+
+      newDices[i].selected = !newDices[i].selected;
+      break;
+    }
+
+    setDices(newDices);
   }
 }
