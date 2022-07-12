@@ -29,6 +29,7 @@ export function sortDices(dices: Dice[]): Dice[] {
 
 export function rollDices(dices: Dice[]) {
   return dices.map(function (dice): Dice {
+    if (dice.kept) return dice;
     return {
       key: dice.key,
       value: getRandomDiceValue(),
