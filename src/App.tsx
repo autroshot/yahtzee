@@ -36,9 +36,9 @@ export default function App() {
 
   function handleRollDicesClick() {
     if (!dices) {
-      const dices = createInitialDices();
+      const initialDices = createInitialDices();
 
-      setDices(sortDices(dices));
+      setDices(sortDices(initialDices));
       setRollCount(rollCount + 1);
     } else {
       const rolledDices = rollDices(dices);
@@ -52,5 +52,7 @@ export default function App() {
 
   function handleDiceClick(key: number) {
     console.log(`#${key} dice clicked`);
+    const foundDice = dices?.find((dice) => dice.key === key);
+    console.log(foundDice);
   }
 }
