@@ -57,3 +57,20 @@ export default function App() {
     }
   }
 }
+
+function rollDices(dices: Dice[]) {
+  const result: Dice[] = [];
+
+  result.concat(
+    dices.map(function (dice): Dice {
+      return {
+        key: dice.key,
+        value: getRandomDiceValue(),
+        kept: false,
+        selected: false,
+      };
+    })
+  );
+
+  return result;
+}
