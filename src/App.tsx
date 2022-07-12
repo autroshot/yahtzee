@@ -47,7 +47,7 @@ export default function App() {
 
       setDices(sortDices(initialDices));
       setRollCount(rollCount + 1);
-    } else {
+    } else if (dices.some((dice) => !dice.kept)) {
       const rolledDices = rollDices(dices);
 
       if (rollCount < 3) {
