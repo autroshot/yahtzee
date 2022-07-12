@@ -50,3 +50,12 @@ export function toggleDiceSelected(key: number, dices: Dice[]) {
 
   return result;
 }
+
+export function changeKeptOfSelectedDices(kept: boolean, dices: Dice[]) {
+  return dices.map((dice) => {
+    if (!dice.selected) return dice;
+
+    dice.kept = kept;
+    return dice;
+  });
+}

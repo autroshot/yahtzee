@@ -7,6 +7,7 @@ import DiceRolling from './components/DiceRolling';
 import { useState } from 'react';
 import { Dice } from './types/dice';
 import {
+  changeKeptOfSelectedDices,
   createInitialDices,
   rollDices,
   sortDices,
@@ -67,16 +68,10 @@ export default function App() {
 
     switch (direction) {
       case 'up':
+        setDices(changeKeptOfSelectedDices(false, dices));
         break;
       case 'down':
-        setDices(
-          dices.map((dice) => {
-            if (!dice.selected) return dice;
-
-            dice.kept = true;
-            return dice;
-          })
-        );
+        setDices(changeKeptOfSelectedDices(true, dices));
         break;
     }
   }
