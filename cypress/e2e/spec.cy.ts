@@ -91,12 +91,9 @@ describe('주사위 굴리기', () => {
   });
 });
 
-describe('주사위 선택하기', () => {
-  beforeEach(() => {
+describe('주사위 선택 및 보관하기', () => {
+  it('선택한 주사위 표시하기', () => {
     cy.visit('/');
-  });
-
-  it('선택된 주사위 표시하기', () => {
     cy.contains('주사위 굴리기').click();
 
     cy.get('[data-cy="rolled-dices"] button')
@@ -105,9 +102,68 @@ describe('주사위 선택하기', () => {
       .should('have.attr', 'data-selected');
 
     cy.get('[data-cy="rolled-dices"] button')
+      .eq(1)
+      .click()
+      .should('have.attr', 'data-selected');
+
+    cy.get('[data-cy="rolled-dices"] button')
+      .eq(3)
+      .click()
+      .should('have.attr', 'data-selected');
+
+    cy.get('[data-cy="rolled-dices"] button')
       .last()
       .click()
       .should('have.attr', 'data-selected');
+  });
+
+  it('선택한 주사위 보관하기', () => {
+    cy.get('[data-selected]').then(($selectedDices) => {
+      const selectedDiceValues = getDiceValues($selectedDices);
+
+      cy.contains('선택한 주사위 보관하기').click();
+
+      cy.get('[data-cy="kept-dices"] button').then(($keptDices) => {
+        const keptDiceValues = getDiceValues($keptDices);
+
+        expect(keptDiceValues).deep.equal(selectedDiceValues);
+      });
+    });
+  });
+
+  it('선택한 주사위 되돌리기', () => {
+    cy.visit('/');
+    cy.contains('주사위 굴리기').click();
+
+    let expectDiceValues: number[] = [];
+    cy.get('[data-cy="rolled-dices"] button')
+      .eq(1)
+      .then(($dice) => {
+        expectDiceValues.push(...getDiceValues($dice));
+      });
+    cy.get('[data-cy="rolled-dices"] button')
+      .eq(4)
+      .then(($dice) => {
+        expectDiceValues.push(...getDiceValues($dice));
+      });
+    selectDice(false, 1);
+    selectDice(false, 2);
+    selectDice(false, 4);
+    cy.contains('선택한 주사위 보관하기').click();
+
+    cy.get('[data-cy="rolled-dices"] button').then(($dices) => {
+      expectDiceValues.push(...getDiceValues($dices));
+    });
+    selectDice(true, 0);
+    selectDice(true, 2);
+    cy.contains('선택한 주사위 되돌리기').click();
+
+    cy.get('[data-cy="rolled-dices"] button').then(($dices) => {
+      const rolledDices = getDiceValues($dices);
+
+      expectDiceValues.sort((a, b) => a - b);
+      expect(rolledDices).deep.equal(expectDiceValues);
+    });
   });
 });
 
@@ -119,4 +175,12 @@ function getDiceValues(dices: JQuery<HTMLElement>): number[] {
   }
 
   return result;
+}
+
+function selectDice(kept: boolean, index: number) {
+  if (!kept) {
+    cy.get('[data-cy="rolled-dices"] button').eq(index).click();
+  } else {
+    cy.get('[data-cy="kept-dices"] button').eq(index).click();
+  }
 }
