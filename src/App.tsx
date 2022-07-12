@@ -41,14 +41,8 @@ export default function App() {
       setDices(sortDices(dices));
       setRollCount(rollCount + 1);
     } else {
-      const rolledDices = dices.map(function (dice): Dice {
-        return {
-          key: dice.key,
-          value: getRandomDiceValue(),
-          kept: false,
-          selected: false,
-        };
-      });
+      const rolledDices = rollDices(dices);
+      console.log(rolledDices);
 
       if (rollCount < 3) {
         setDices(sortDices(rolledDices));
@@ -59,18 +53,12 @@ export default function App() {
 }
 
 function rollDices(dices: Dice[]) {
-  const result: Dice[] = [];
-
-  result.concat(
-    dices.map(function (dice): Dice {
-      return {
-        key: dice.key,
-        value: getRandomDiceValue(),
-        kept: false,
-        selected: false,
-      };
-    })
-  );
-
-  return result;
+  return dices.map(function (dice): Dice {
+    return {
+      key: dice.key,
+      value: getRandomDiceValue(),
+      kept: false,
+      selected: false,
+    };
+  });
 }
