@@ -37,3 +37,16 @@ export function rollDices(dices: Dice[]) {
     };
   });
 }
+
+export function toggleDiceSelected(key: number, dices: Dice[]) {
+  const result = [...dices];
+
+  for (let i = 0; i < result.length; i++) {
+    if (result[i].key !== key) continue;
+
+    result[i].selected = !result[i].selected;
+    break;
+  }
+
+  return result;
+}

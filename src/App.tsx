@@ -6,7 +6,12 @@ import ScoreCard from './components/ScoreCard';
 import DiceRolling from './components/DiceRolling';
 import { useState } from 'react';
 import { Dice } from './types/dice';
-import { createInitialDices, rollDices, sortDices } from './utils/dice';
+import {
+  createInitialDices,
+  rollDices,
+  sortDices,
+  toggleDiceSelected,
+} from './utils/dice';
 
 export default function App() {
   const [rollCount, setRollCount] = useState(0);
@@ -53,15 +58,6 @@ export default function App() {
   function handleDiceClick(key: number) {
     if (!dices) return;
 
-    const newDices = [...(dices as Dice[])];
-
-    for (let i = 0; i < newDices.length; i++) {
-      if (newDices[i].key !== key) continue;
-
-      newDices[i].selected = !newDices[i].selected;
-      break;
-    }
-
-    setDices(newDices);
+    setDices(toggleDiceSelected(key, dices));
   }
 }
