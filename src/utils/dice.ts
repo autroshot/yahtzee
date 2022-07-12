@@ -56,6 +56,7 @@ export function changeKeptOfSelectedDices(kept: boolean, dices: Dice[]) {
     if (!dice.selected) return dice;
 
     dice.kept = kept;
+    dice.selected = false;
     return dice;
   });
 }

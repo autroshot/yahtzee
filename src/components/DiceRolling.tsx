@@ -45,14 +45,14 @@ export default function DiceRolling(props: DiceRollingProps) {
             className="action"
             onClick={() => props.onMoveDicesClick('down')}
           >
-            선택된 주사위 내리기
+            선택한 주사위 보관하기
           </Button>
           <Button
             variant="secondary"
             className="action"
             onClick={() => props.onMoveDicesClick('up')}
           >
-            선택된 주사위 올리기
+            선택한 주사위 되돌리기
           </Button>
         </Col>
       </Row>
