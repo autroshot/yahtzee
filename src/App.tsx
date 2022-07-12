@@ -60,4 +60,15 @@ export default function App() {
 
     setDices(toggleDiceSelected(key, dices));
   }
+
+  function handleMoveDicesClick(direction: string) {
+    switch (direction) {
+      case 'up':
+        console.log('MoveDices: up');
+        break;
+      case 'down':
+        console.log('MoveDices: down');
+        break;
+    }
+  }
 }
