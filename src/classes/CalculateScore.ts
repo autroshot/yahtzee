@@ -52,6 +52,36 @@ export default class CalculateScore {
     return 0;
   }
 
+  smallStraight() {
+    const diceValuesCount = this._getDiceValuesCount();
+
+    if (
+      diceValuesCount[0] >= 1 &&
+      diceValuesCount[1] >= 1 &&
+      diceValuesCount[2] >= 1 &&
+      diceValuesCount[3] >= 1
+    ) {
+      return 15;
+    }
+    if (
+      diceValuesCount[1] >= 1 &&
+      diceValuesCount[2] >= 1 &&
+      diceValuesCount[3] >= 1 &&
+      diceValuesCount[4] >= 1
+    ) {
+      return 15;
+    }
+    if (
+      diceValuesCount[2] >= 1 &&
+      diceValuesCount[3] >= 1 &&
+      diceValuesCount[4] >= 1 &&
+      diceValuesCount[5] >= 1
+    ) {
+      return 15;
+    }
+    return 0;
+  }
+
   _sum() {
     return this._diceValues.reduce((sum, value) => sum + value, 0);
   }
