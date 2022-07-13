@@ -92,10 +92,12 @@ describe('주사위 굴리기', () => {
 });
 
 describe('주사위 선택 및 보관하기', () => {
-  it('선택한 주사위 표시하기', () => {
+  beforeEach(() => {
     cy.visit('/');
     cy.contains('주사위 굴리기').click();
+  });
 
+  it('선택한 주사위 표시하기', () => {
     cy.get('[data-cy="rolled-dices"] button')
       .first()
       .click()
@@ -118,6 +120,10 @@ describe('주사위 선택 및 보관하기', () => {
   });
 
   it('선택한 주사위 보관하기', () => {
+    selectDice(false, 2);
+    selectDice(false, 4);
+    selectDice(false, 5);
+
     cy.get('[data-selected]').then(($selectedDices) => {
       const selectedDiceValues = getDiceValues($selectedDices);
 
@@ -132,9 +138,6 @@ describe('주사위 선택 및 보관하기', () => {
   });
 
   it('선택한 주사위 되돌리기', () => {
-    cy.visit('/');
-    cy.contains('주사위 굴리기').click();
-
     let expectDiceValues: number[] = [];
     cy.get('[data-cy="rolled-dices"] button')
       .eq(1)
