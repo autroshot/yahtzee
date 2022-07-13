@@ -24,11 +24,6 @@ export default function App() {
   const [dices, setDices] = useState<Dice[]>();
   const [scores, setScores] = useState<Scores>(createInitialScores());
 
-  if (dices) {
-    const calculateScore = new CalculateScore(dices.map((dice) => dice.value));
-    console.log(calculateScore._diceValues);
-  }
-
   return (
     <Container className="app">
       <Row>
@@ -58,13 +53,25 @@ export default function App() {
 
       setDices(sortDices(initialDices));
       setRollCount(rollCount + 1);
-    } else if (dices.some((dice) => !dice.kept)) {
-      const rolledDices = rollDices(dices);
+    } else if (rollCount < 3 && dices.some((dice) => !dice.kept)) {
+      const rolledDices = sortDices(rollDices(dices));
 
-      if (rollCount < 3) {
-        setDices(sortDices(rolledDices));
-        setRollCount(rollCount + 1);
-      }
+      setDices(rolledDices);
+      setRollCount(rollCount + 1);
+
+      const calculateScore = new CalculateScore(
+        rolledDices.map((dice) => dice.value)
+      );
+
+      const scoresCopy = { ...scores };
+      scoresCopy.ace = calculateScore.upper(1);
+      scoresCopy.dual = calculateScore.upper(2);
+      scoresCopy.triple = calculateScore.upper(3);
+      scoresCopy.quad = calculateScore.upper(4);
+      scoresCopy.penta = calculateScore.upper(5);
+      scoresCopy.hexa = calculateScore.upper(6);
+
+      setScores(scoresCopy);
     }
   }
 
