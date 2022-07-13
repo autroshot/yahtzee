@@ -2,7 +2,7 @@ import { Dice } from './dice';
 import { Scores } from './scores';
 
 export interface DiceRollingProps {
-  dices: Dice[] | undefined;
+  dices: Dice[] | null;
   onRollDicesClick: () => void;
   onDiceClick: (key: number) => void;
   onMoveDicesClick: (direction: string) => void;

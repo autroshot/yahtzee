@@ -21,7 +21,7 @@ import CalculateScore from './classes/Score';
 
 export default function App() {
   const [rollCount, setRollCount] = useState(0);
-  const [dices, setDices] = useState<Dice[]>();
+  const [dices, setDices] = useState<Dice[] | null>(null);
   const [scores, setScores] = useState<Scores>(createInitialScores());
 
   return (
