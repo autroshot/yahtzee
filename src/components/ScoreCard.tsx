@@ -63,7 +63,7 @@ export default function ScoreCard() {
                 <td>요트</td>
                 <td>0</td>
               </tr>
-              <tr className="totalScoreRow">
+              <tr className="total-score">
                 <td>총점</td>
                 <td>0</td>
               </tr>

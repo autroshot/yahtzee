@@ -15,10 +15,12 @@ import {
   getKeptOfSelectedDice,
   getDeselectedOtherDices,
 } from './utils/dice';
+import { Scores } from './types/scores';
 
 export default function App() {
   const [rollCount, setRollCount] = useState(0);
   const [dices, setDices] = useState<Dice[]>();
+  const [scores, setScores] = useState<Scores>();
 
   return (
     <Container className="app">
