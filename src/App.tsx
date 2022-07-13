@@ -16,11 +16,12 @@ import {
   getDeselectedOtherDices,
 } from './utils/dice';
 import { Scores } from './types/scores';
+import Score from './classes/Score';
 
 export default function App() {
   const [rollCount, setRollCount] = useState(0);
   const [dices, setDices] = useState<Dice[]>();
-  const [scores, setScores] = useState<Scores>();
+  const [scores, setScores] = useState<Scores>(Score.createInitialScores());
 
   return (
     <Container className="app">
