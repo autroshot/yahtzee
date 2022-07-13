@@ -17,11 +17,17 @@ import {
 } from './utils/dice';
 import { Scores } from './types/scores';
 import { createInitialScores } from './utils/score';
+import CalculateScore from './classes/Score';
 
 export default function App() {
   const [rollCount, setRollCount] = useState(0);
   const [dices, setDices] = useState<Dice[]>();
   const [scores, setScores] = useState<Scores>(createInitialScores());
+
+  if (dices) {
+    const calculateScore = new CalculateScore(dices.map((dice) => dice.value));
+    console.log(calculateScore._diceValues);
+  }
 
   return (
     <Container className="app">
