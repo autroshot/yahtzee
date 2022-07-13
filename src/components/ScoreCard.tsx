@@ -1,16 +1,13 @@
 import { Col, Row, Table } from 'react-bootstrap';
 import { ScoreCardProps } from '../types/props';
+import {
+  calculateBonus,
+  calculateTotal,
+  calculateUpperTotal,
+} from '../utils/score';
 
 export default function ScoreCard(props: ScoreCardProps) {
   const scores = props.scores;
-  const upperTotal =
-    scores.aces +
-    scores.dual +
-    scores.triple +
-    scores.quad +
-    scores.penta +
-    scores.hexa;
-  const bonus = upperTotal >= 65 ? 35 : 0;
 
   return (
     <>
@@ -45,13 +42,13 @@ export default function ScoreCard(props: ScoreCardProps) {
               <tr className="total-score">
                 <td>상단 점수의 합이 63점 이상이라면</td>
                 <td>
-                  {upperTotal}
+                  {calculateUpperTotal(scores)}
                   /63
                 </td>
               </tr>
               <tr className="total-score">
                 <td>상단 보너스 +35점</td>
-                <td>{upperTotal >= 65 ? 35 : 0}</td>
+                <td>{calculateBonus(scores)}</td>
               </tr>
               <tr>
                 <td>초이스</td>
@@ -79,7 +76,7 @@ export default function ScoreCard(props: ScoreCardProps) {
               </tr>
               <tr className="total-score">
                 <td>총점</td>
-                <td>0</td>
+                <td>{calculateTotal(scores)}</td>
               </tr>
             </tbody>
           </Table>
