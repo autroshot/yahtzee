@@ -1,4 +1,5 @@
 import { Col, Row, Table } from 'react-bootstrap';
+import CalculateScore from '../classes/Score';
 import { ScoreCardProps } from '../types/props';
 import {
   calculateBonus,
@@ -10,6 +11,8 @@ export default function ScoreCard(props: ScoreCardProps) {
   const scores = props.scores;
   const diceValues = props.diceValues;
 
+  const calculateScore = diceValues ? new CalculateScore(diceValues) : null;
+
   return (
     <>
       <Row>
@@ -19,37 +22,55 @@ export default function ScoreCard(props: ScoreCardProps) {
               <tr>
                 <td>에이스</td>
                 <td>
-                  <span data-cy="ace">{scores.ace}</span>
+                  <span data-cy="ace">
+                    {scores.ace ??
+                      (calculateScore ? calculateScore.upper(1) : null)}
+                  </span>
                 </td>
               </tr>
               <tr>
                 <td>듀얼</td>
                 <td>
-                  <span data-cy="dual">{scores.dual}</span>
+                  <span data-cy="dual">
+                    {scores.dual ??
+                      (calculateScore ? calculateScore.upper(2) : null)}
+                  </span>
                 </td>
               </tr>
               <tr>
                 <td>트리플</td>
                 <td>
-                  <span data-cy="triple">{scores.triple}</span>
+                  <span data-cy="triple">
+                    {scores.triple ??
+                      (calculateScore ? calculateScore.upper(3) : null)}
+                  </span>
                 </td>
               </tr>
               <tr>
                 <td>쿼드</td>
                 <td>
-                  <span data-cy="quad">{scores.quad}</span>
+                  <span data-cy="quad">
+                    {scores.quad ??
+                      (calculateScore ? calculateScore.upper(4) : null)}
+                  </span>
                 </td>
               </tr>
               <tr>
                 <td>펜타</td>
                 <td>
-                  <span data-cy="penta">{scores.penta}</span>
+                  <span data-cy="penta">
+                    {scores.penta ??
+                      (calculateScore ? calculateScore.upper(5) : null)}
+                  </span>
                 </td>
               </tr>
               <tr>
                 <td>헥사</td>
                 <td>
-                  <span data-cy="hexa">{scores.hexa}</span>
+                  <span data-cy="hexa">
+                    {scores.hexa ??
+                      (calculateScore ? calculateScore.upper(6) : null)}
+                  </span>
                 </td>
               </tr>
               <tr className="total-score">

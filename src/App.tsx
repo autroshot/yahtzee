@@ -17,7 +17,6 @@ import {
 } from './utils/dice';
 import { Scores } from './types/scores';
 import { createInitialScores } from './utils/score';
-import CalculateScore from './classes/Score';
 
 export default function App() {
   const [rollCount, setRollCount] = useState(0);
@@ -61,20 +60,6 @@ export default function App() {
 
       setDices(rolledDices);
       setRollCount(rollCount + 1);
-
-      const calculateScore = new CalculateScore(
-        rolledDices.map((dice) => dice.value)
-      );
-
-      const scoresCopy = { ...scores };
-      scoresCopy.ace = calculateScore.upper(1);
-      scoresCopy.dual = calculateScore.upper(2);
-      scoresCopy.triple = calculateScore.upper(3);
-      scoresCopy.quad = calculateScore.upper(4);
-      scoresCopy.penta = calculateScore.upper(5);
-      scoresCopy.hexa = calculateScore.upper(6);
-
-      setScores(scoresCopy);
     }
   }
 

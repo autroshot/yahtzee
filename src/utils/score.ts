@@ -2,18 +2,18 @@ import { Scores } from '../types/scores';
 
 export function createInitialScores(): Scores {
   return {
-    ace: 0,
-    dual: 0,
-    triple: 0,
-    quad: 0,
-    penta: 0,
-    hexa: 0,
-    choice: 0,
-    poker: 0,
-    fullHouse: 0,
-    smallStraight: 0,
-    largeStraight: 0,
-    yacht: 0,
+    ace: null,
+    dual: null,
+    triple: null,
+    quad: null,
+    penta: null,
+    hexa: null,
+    choice: null,
+    poker: null,
+    fullHouse: null,
+    smallStraight: null,
+    largeStraight: null,
+    yacht: null,
   };
 }
 
