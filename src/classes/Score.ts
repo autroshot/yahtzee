@@ -1,3 +1,11 @@
-import { Scores } from '../types/scores';
+export default class Score {
+  _diceValues: number[];
 
-export default class Score {}
+  constructor(dices: number[]) {
+    this._diceValues = dices;
+  }
+
+  calculateUpper(target: number) {
+    return this._diceValues.filter((value) => value === target).length * target;
+  }
+}
