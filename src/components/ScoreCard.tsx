@@ -91,7 +91,10 @@ export default function ScoreCard(props: ScoreCardProps) {
               <tr>
                 <td>초이스</td>
                 <td>
-                  <span data-cy="choice">{scores.choice}</span>
+                  <span data-cy="choice">
+                    {scores.choice ??
+                      (calculateScore ? calculateScore.choice() : null)}
+                  </span>
                 </td>
               </tr>
               <tr>

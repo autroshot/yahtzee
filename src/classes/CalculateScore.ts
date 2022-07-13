@@ -8,4 +8,8 @@ export default class CalculateScore {
   upper(target: number) {
     return this._diceValues.filter((value) => value === target).length * target;
   }
+
+  choice() {
+    return this._diceValues.reduce((sum, value) => sum + value, 0);
+  }
 }
