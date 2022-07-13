@@ -100,13 +100,19 @@ export default function ScoreCard(props: ScoreCardProps) {
               <tr>
                 <td>포커</td>
                 <td>
-                  <span data-cy="poker">{scores.poker}</span>
+                  <span data-cy="poker">
+                    {scores.poker ??
+                      (calculateScore ? calculateScore.poker() : null)}
+                  </span>
                 </td>
               </tr>
               <tr>
                 <td>풀 하우스</td>
                 <td>
-                  <span data-cy="full-house">{scores.fullHouse}</span>
+                  <span data-cy="full-house">
+                    {scores.fullHouse ??
+                      (calculateScore ? calculateScore.fullHouse() : null)}
+                  </span>
                 </td>
               </tr>
               <tr>
