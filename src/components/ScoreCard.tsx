@@ -1,5 +1,5 @@
 import { Col, Row, Table } from 'react-bootstrap';
-import CalculateScore from '../classes/Score';
+import CalculateScore from '../classes/CalculateScore';
 import { ScoreCardProps } from '../types/props';
 import {
   calculateBonus,
