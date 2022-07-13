@@ -1,4 +1,5 @@
 import { Dice } from './dice';
+import { Scores } from './scores';
 
 export interface DiceRollingProps {
   dices: Dice[] | undefined;
@@ -15,4 +16,8 @@ export interface DiceProps {
 
 export interface InfoProps {
   rollCount: number;
+}
+
+export interface ScoreCardProps {
+  scores: Scores;
 }
