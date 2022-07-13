@@ -17,7 +17,7 @@ export default function ScoreCard(props: ScoreCardProps) {
             <tbody>
               <tr>
                 <td>에이스</td>
-                <td>{scores.aces}</td>
+                <td>{scores.ace}</td>
               </tr>
               <tr>
                 <td>듀얼</td>

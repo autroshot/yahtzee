@@ -1,5 +1,5 @@
 export interface Scores {
-  aces: number;
+  ace: number;
   dual: number;
   triple: number;
   quad: number;

@@ -2,7 +2,7 @@ import { Scores } from '../types/scores';
 
 export function createInitialScores(): Scores {
   return {
-    aces: 0,
+    ace: 0,
     dual: 0,
     triple: 0,
     quad: 0,
@@ -19,7 +19,7 @@ export function createInitialScores(): Scores {
 
 export function calculateUpperTotal(scores: Scores) {
   return (
-    scores.aces +
+    scores.ace +
     scores.dual +
     scores.triple +
     scores.quad +
