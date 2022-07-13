@@ -19,7 +19,10 @@ export default class CalculateScore {
     const x = { value: this._diceValues[0], count: 0 };
     const y = { value: this._diceValues[1], count: 0 };
 
+    let sum = 0;
     this._diceValues.forEach((value) => {
+      sum += value;
+
       if (value === x.value) {
         x.count++;
         return;
@@ -30,11 +33,8 @@ export default class CalculateScore {
       }
     });
 
-    if (x.count >= 4) {
-      result = x.value * 4;
-    }
-    if (y.count >= 4) {
-      result = y.value * 4;
+    if (x.count >= 4 || y.count >= 4) {
+      result = sum;
     }
 
     return result;
