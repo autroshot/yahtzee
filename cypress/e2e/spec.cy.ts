@@ -6,6 +6,7 @@ describe('접속과 초깃값', () => {
   });
 
   it('초깃값', () => {
+    cy.get('[data-cy="round"]').should('contain', '1');
     cy.get('[data-cy="roll-count"]').should('contain', '0');
     cy.get('[data-cy="instruction"]').should('contain', '주사위를 굴리세요.');
     cy.get('[data-cy="rolled-dices"]').children().should('not.exist');

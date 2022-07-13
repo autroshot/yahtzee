@@ -19,7 +19,9 @@ export default function Info(props: InfoProps) {
   return (
     <>
       <Row>
-        <Col>라운드: 1/12</Col>
+        <Col>
+          라운드: <span data-cy="round">1</span>/12
+        </Col>
       </Row>
       <Row>
         <Col>
