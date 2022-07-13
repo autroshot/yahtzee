@@ -82,6 +82,16 @@ export default class CalculateScore {
     return 0;
   }
 
+  largeStraight() {
+    if (JSON.stringify(this._diceValues) === JSON.stringify([1, 2, 3, 4, 5])) {
+      return 30;
+    }
+    if (JSON.stringify(this._diceValues) === JSON.stringify([2, 3, 4, 5, 6])) {
+      return 30;
+    }
+    return 0;
+  }
+
   _sum() {
     return this._diceValues.reduce((sum, value) => sum + value, 0);
   }
