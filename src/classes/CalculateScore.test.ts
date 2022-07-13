@@ -16,4 +16,20 @@ describe('CalculateScore의 점수 계산 기능', () => {
       expect(calculateScore.poker()).toEqual(diceValuesTestData.result);
     });
   });
+
+  it('fullHouse', () => {
+    const diceValuesTestDatas = [
+      { diceValues: [1, 1, 1, 2, 3], result: 0 },
+      { diceValues: [2, 2, 2, 3, 3], result: 12 },
+      { diceValues: [3, 3, 3, 3, 4], result: 0 },
+      { diceValues: [6, 6, 6, 6, 6], result: 30 },
+      { diceValues: [3, 3, 3, 4, 4], result: 17 },
+      { diceValues: [3, 3, 6, 6, 6], result: 24 },
+    ];
+    diceValuesTestDatas.forEach((diceValuesTestData) => {
+      const calculateScore = new CalculateScore(diceValuesTestData.diceValues);
+
+      expect(calculateScore.fullHouse()).toEqual(diceValuesTestData.result);
+    });
+  });
 });

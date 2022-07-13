@@ -10,7 +10,7 @@ export default class CalculateScore {
   }
 
   choice() {
-    return this._diceValues.reduce((sum, value) => sum + value, 0);
+    return this._sum();
   }
 
   poker() {
@@ -38,5 +38,41 @@ export default class CalculateScore {
     }
 
     return result;
+  }
+
+  fullHouse() {
+    const diceValuesCount = this._getDiceValuesCount();
+
+    if (diceValuesCount.includes(2) && diceValuesCount.includes(3)) {
+      return this._sum();
+    }
+    if (diceValuesCount.includes(5)) {
+      return this._sum();
+    }
+    return 0;
+  }
+
+  _sum() {
+    return this._diceValues.reduce((sum, value) => sum + value, 0);
+  }
+
+  _getDiceValuesCount() {
+    const diceValuesCountMap = new Map([
+      [1, 0],
+      [2, 0],
+      [3, 0],
+      [4, 0],
+      [5, 0],
+      [6, 0],
+    ]);
+
+    this._diceValues.forEach((value) => {
+      diceValuesCountMap.set(
+        value,
+        (diceValuesCountMap.get(value) as number) + 1
+      );
+    });
+
+    return Array.from(diceValuesCountMap.values());
   }
 }
