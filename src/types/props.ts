@@ -20,4 +20,5 @@ export interface InfoProps {
 
 export interface ScoreCardProps {
   scores: Scores;
+  diceValues: number[] | null;
 }

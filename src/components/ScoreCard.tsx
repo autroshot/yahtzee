@@ -8,6 +8,7 @@ import {
 
 export default function ScoreCard(props: ScoreCardProps) {
   const scores = props.scores;
+  const diceValues = props.diceValues;
 
   return (
     <>
