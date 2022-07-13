@@ -5,7 +5,6 @@ export interface Scores {
   quad: number;
   penta: number;
   hexa: number;
-  bonus: number;
   choice: number;
   poker: number;
   fullHouse: number;

@@ -1,5 +1,7 @@
+import { Scores } from '../types/scores';
+
 export default class Score {
-  static createInitialScores() {
+  static createInitialScores(): Scores {
     return {
       aces: 0,
       dual: 0,
@@ -7,7 +9,6 @@ export default class Score {
       quad: 0,
       penta: 0,
       hexa: 0,
-      bonus: 0,
       choice: 0,
       poker: 0,
       fullHouse: 0,
