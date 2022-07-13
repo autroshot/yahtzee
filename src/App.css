@@ -33,14 +33,6 @@
   border: 0.2rem dashed gray;
 }
 
-@media screen and (min-width: 576px) {
-  .dices-container {
-    height: 4.5rem;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .dices-container {
-    height: 9rem;
-  }
+.dices-container {
+  height: 4.5rem;
 }
