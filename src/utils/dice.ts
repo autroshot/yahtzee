@@ -3,7 +3,7 @@ import { Dice } from '../types/dice';
 export function createInitialDices() {
   const result: Dice[] = [];
 
-  for (let i = 1; i <= 6; i++) {
+  for (let i = 1; i <= 5; i++) {
     result.push({
       key: i,
       value: getRandomDiceValue(),

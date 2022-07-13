@@ -41,7 +41,7 @@ describe('주사위 굴리기', () => {
       'contain',
       '주사위를 다시 굴리거나 점수를 선택하세요.'
     );
-    cy.get('[data-cy="rolled-dices"]').children().should('have.length', '6');
+    cy.get('[data-cy="rolled-dices"]').children().should('have.length', '5');
 
     cy.contains('주사위 굴리기').click();
 
@@ -50,13 +50,13 @@ describe('주사위 굴리기', () => {
       'contain',
       '주사위를 다시 굴리거나 점수를 선택하세요.'
     );
-    cy.get('[data-cy="rolled-dices"]').children().should('have.length', '6');
+    cy.get('[data-cy="rolled-dices"]').children().should('have.length', '5');
 
     cy.contains('주사위 굴리기').click();
 
     cy.get('[data-cy="roll-count"]').should('contain', '3');
     cy.get('[data-cy="instruction"]').should('contain', '점수를 선택하세요.');
-    cy.get('[data-cy="rolled-dices"]').children().should('have.length', '6');
+    cy.get('[data-cy="rolled-dices"]').children().should('have.length', '5');
   });
 
   it('제한 횟수 초과 주사위 굴리기', () => {
@@ -68,7 +68,7 @@ describe('주사위 굴리기', () => {
 
     cy.get('[data-cy="roll-count"]').should('contain', '3');
     cy.get('[data-cy="instruction"]').should('contain', '점수를 선택하세요.');
-    cy.get('[data-cy="rolled-dices"]').children().should('have.length', '6');
+    cy.get('[data-cy="rolled-dices"]').children().should('have.length', '5');
   });
 
   it('주사위 값 변화 확인', () => {
@@ -178,9 +178,9 @@ describe('주사위 선택 및 보관하기', () => {
   });
 
   it('선택한 주사위 보관하기', () => {
+    selectDice(false, 0);
     selectDice(false, 2);
     selectDice(false, 4);
-    selectDice(false, 5);
 
     cy.get('[data-selected]').then(($selectedDices) => {
       const selectedDiceValues = getDiceValues($selectedDices);
