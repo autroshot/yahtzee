@@ -119,6 +119,48 @@ describe('주사위 선택 및 보관하기', () => {
       .should('have.attr', 'data-selected');
   });
 
+  it('새로 선택한 주사위의 보관 여부가 다르면 기존 선택 모두 해제하기', () => {
+    selectDice(false, 1);
+    selectDice(false, 2);
+
+    cy.contains('선택한 주사위 보관하기').click();
+
+    cy.get('[data-cy="kept-dices"] button')
+      .eq(0)
+      .click()
+      .should('have.attr', 'data-selected');
+    cy.get('[data-cy="kept-dices"] button')
+      .eq(1)
+      .click()
+      .should('have.attr', 'data-selected');
+
+    cy.get('[data-cy="rolled-dices"] button')
+      .eq(1)
+      .click()
+      .should('have.attr', 'data-selected');
+    cy.get('[data-cy="kept-dices"] button')
+      .eq(1)
+      .should('not.have.attr', 'data-selected');
+    cy.get('[data-cy="kept-dices"] button')
+      .eq(1)
+      .should('not.have.attr', 'data-selected');
+
+    cy.get('[data-cy="rolled-dices"] button')
+      .eq(0)
+      .click()
+      .should('have.attr', 'data-selected');
+    cy.get('[data-cy="kept-dices"] button')
+      .eq(0)
+      .click()
+      .should('have.attr', 'data-selected');
+    cy.get('[data-cy="rolled-dices"] button')
+      .eq(0)
+      .should('not.have.attr', 'data-selected');
+    cy.get('[data-cy="rolled-dices"] button')
+      .eq(1)
+      .should('not.have.attr', 'data-selected');
+  });
+
   it('선택한 주사위 보관하기', () => {
     selectDice(false, 2);
     selectDice(false, 4);
