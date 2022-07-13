@@ -98,7 +98,9 @@ export default function ScoreCard(props: ScoreCardProps) {
               </tr>
               <tr>
                 <td>요트</td>
-                <td>{scores.yacht}</td>
+                <td>
+                  <span data-cy="yacht">{scores.yacht}</span>
+                </td>
               </tr>
               <tr className="total-score">
                 <td>총점</td>

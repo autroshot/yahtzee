@@ -10,6 +10,21 @@ describe('접속과 초깃값', () => {
     cy.get('[data-cy="roll-count"]').should('contain', '0');
     cy.get('[data-cy="instruction"]').should('contain', '주사위를 굴리세요.');
     cy.get('[data-cy="rolled-dices"]').children().should('not.exist');
+    cy.get('[data-cy="ace"]').should('have.text', '0');
+    cy.get('[data-cy="dual"]').should('have.text', '0');
+    cy.get('[data-cy="triple"]').should('have.text', '0');
+    cy.get('[data-cy="quad"]').should('have.text', '0');
+    cy.get('[data-cy="penta"]').should('have.text', '0');
+    cy.get('[data-cy="hexa"]').should('have.text', '0');
+    cy.get('[data-cy="upper-total"]').should('have.text', '0');
+    cy.get('[data-cy="bonus"]').should('have.text', '0');
+    cy.get('[data-cy="choice"]').should('have.text', '0');
+    cy.get('[data-cy="poker"]').should('have.text', '0');
+    cy.get('[data-cy="full-house"]').should('have.text', '0');
+    cy.get('[data-cy="small-straight"]').should('have.text', '0');
+    cy.get('[data-cy="large-straight"]').should('have.text', '0');
+    cy.get('[data-cy="yacht"]').should('have.text', '0');
+    cy.get('[data-cy="total"]').should('have.text', '0');
   });
 });
 
