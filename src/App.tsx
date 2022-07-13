@@ -42,7 +42,7 @@ export default function App() {
           <h3>점수표</h3>
         </Col>
       </Row>
-      <ScoreCard />
+      <ScoreCard scores={scores} />
     </Container>
   );
 

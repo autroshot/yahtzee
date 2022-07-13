@@ -1,6 +1,7 @@
 import { Col, Row, Table } from 'react-bootstrap';
+import { ScoreCardProps } from '../types/props';
 
-export default function ScoreCard() {
+export default function ScoreCard(props: ScoreCardProps) {
   return (
     <>
       <Row>
