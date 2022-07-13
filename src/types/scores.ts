@@ -1,14 +1,14 @@
 export interface Scores {
-  ace: number;
-  dual: number;
-  triple: number;
-  quad: number;
-  penta: number;
-  hexa: number;
-  choice: number;
-  poker: number;
-  fullHouse: number;
-  smallStraight: number;
-  largeStraight: number;
-  yacht: number;
+  ace: number | null;
+  dual: number | null;
+  triple: number | null;
+  quad: number | null;
+  penta: number | null;
+  hexa: number | null;
+  choice: number | null;
+  poker: number | null;
+  fullHouse: number | null;
+  smallStraight: number | null;
+  largeStraight: number | null;
+  yacht: number | null;
 }

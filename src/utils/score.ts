@@ -19,12 +19,12 @@ export function createInitialScores(): Scores {
 
 export function calculateUpperTotal(scores: Scores) {
   return (
-    scores.ace +
-    scores.dual +
-    scores.triple +
-    scores.quad +
-    scores.penta +
-    scores.hexa
+    (scores.ace ?? 0) +
+    (scores.dual ?? 0) +
+    (scores.triple ?? 0) +
+    (scores.quad ?? 0) +
+    (scores.penta ?? 0) +
+    (scores.hexa ?? 0)
   );
 }
 
