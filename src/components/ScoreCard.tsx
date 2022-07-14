@@ -118,13 +118,19 @@ export default function ScoreCard(props: ScoreCardProps) {
               <tr>
                 <td>스몰 스트레이트</td>
                 <td>
-                  <span data-cy="small-straight">{scores.smallStraight}</span>
+                  <span data-cy="small-straight">
+                    {scores.smallStraight ??
+                      (calculateScore ? calculateScore.smallStraight() : null)}
+                  </span>
                 </td>
               </tr>
               <tr>
                 <td>라지 스트레이트</td>
                 <td>
-                  <span data-cy="large-straight">{scores.largeStraight}</span>
+                  <span data-cy="large-straight">
+                    {scores.largeStraight ??
+                      (calculateScore ? calculateScore.largeStraight() : null)}
+                  </span>
                 </td>
               </tr>
               <tr>
