@@ -15,13 +15,10 @@ import {
   getKeptOfSelectedDice,
   getDeselectedOtherDices,
 } from './utils/dice';
-import { Scores } from './types/scores';
-import { createInitialScores } from './utils/score';
 
 export default function App() {
   const [rollCount, setRollCount] = useState(0);
   const [dices, setDices] = useState<Dice[] | null>(null);
-  const [scores, setScores] = useState<Scores>(createInitialScores());
 
   return (
     <Container className="app">
@@ -42,10 +39,7 @@ export default function App() {
           <h3>점수표</h3>
         </Col>
       </Row>
-      <ScoreCard
-        scores={scores}
-        diceValues={dices ? dices.map((dice) => dice.value) : null}
-      />
+      <ScoreCard diceValues={dices ? dices.map((dice) => dice.value) : null} />
     </Container>
   );
 

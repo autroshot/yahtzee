@@ -1,14 +1,18 @@
+import { useState } from 'react';
 import { Col, Row, Table } from 'react-bootstrap';
 import CalculateScore from '../classes/CalculateScore';
 import { ScoreCardProps } from '../types/props';
+import { Scores } from '../types/scores';
 import {
   calculateBonus,
   calculateTotal,
   calculateUpperTotal,
+  createInitialScores,
 } from '../utils/score';
 
 export default function ScoreCard(props: ScoreCardProps) {
-  const scores = props.scores;
+  const [scores, setScores] = useState<Scores>(createInitialScores());
+
   const diceValues = props.diceValues;
 
   const calculateScore = diceValues ? new CalculateScore(diceValues) : null;
