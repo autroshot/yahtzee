@@ -23,7 +23,7 @@ export default function ScoreCard(props: ScoreCardProps) {
         <Col sm="auto">
           <Table bordered>
             <tbody>
-              <tr className={scores.ace ? '' : 'not-decided-score'}>
+              <tr className={scores.ace ? undefined : 'not-decided-score'}>
                 <td>에이스</td>
                 <td>
                   <span data-cy="ace">
@@ -32,7 +32,7 @@ export default function ScoreCard(props: ScoreCardProps) {
                   </span>
                 </td>
               </tr>
-              <tr className={scores.ace ? '' : 'not-decided-score'}>
+              <tr className={scores.ace ? undefined : 'not-decided-score'}>
                 <td>듀얼</td>
                 <td>
                   <span data-cy="dual">
@@ -41,7 +41,7 @@ export default function ScoreCard(props: ScoreCardProps) {
                   </span>
                 </td>
               </tr>
-              <tr className={scores.ace ? '' : 'not-decided-score'}>
+              <tr className={scores.ace ? undefined : 'not-decided-score'}>
                 <td>트리플</td>
                 <td>
                   <span data-cy="triple">
