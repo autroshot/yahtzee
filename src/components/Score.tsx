@@ -3,7 +3,7 @@ import { ScoreProps } from '../types/props';
 export default function Score(props: ScoreProps) {
   return (
     <tr
-      className={props.isDecided ? undefined : 'not-decided-score'}
+      className={props.isDecided ? 'decided-score' : 'not-decided-score'}
       onClick={props.onScoreClick}
     >
       <td>{props.names.displayedName}</td>

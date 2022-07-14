@@ -9,7 +9,7 @@
 
 .total-score {
   color: white;
-  background-color: gray;
+  background-color: rgb(80, 80, 80);
 }
 
 .dice {
@@ -48,5 +48,10 @@
 }
 
 .not-decided-score:hover td:last-child {
+  color: white;
+}
+
+.decided-score {
+  background-color: gray;
   color: white;
 }
