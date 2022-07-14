@@ -39,7 +39,13 @@ export default function App() {
           <h3>점수표</h3>
         </Col>
       </Row>
-      <ScoreCard diceValues={dices ? dices.map((dice) => dice.value) : null} />
+      <Row>
+        <Col sm="auto">
+          <ScoreCard
+            diceValues={dices ? dices.map((dice) => dice.value) : null}
+          />
+        </Col>
+      </Row>
     </Container>
   );
 
