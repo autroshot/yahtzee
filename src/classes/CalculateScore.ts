@@ -92,6 +92,15 @@ export default class CalculateScore {
     return 0;
   }
 
+  yacht() {
+    const diceValuesCount = this._getDiceValuesCount();
+
+    if (diceValuesCount.includes(5)) {
+      return 50;
+    }
+    return 0;
+  }
+
   _sum() {
     return this._diceValues.reduce((sum, value) => sum + value, 0);
   }
