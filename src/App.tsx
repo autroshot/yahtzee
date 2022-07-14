@@ -95,6 +95,8 @@ export default function App() {
   }
 
   function goNextRound() {
-    console.log('go next round!');
+    setRound((prevRound) => prevRound + 1);
+    setRollCount(0);
+    setDices(null);
   }
 }
