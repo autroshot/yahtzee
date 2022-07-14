@@ -1,9 +1,14 @@
-export default function Score() {
+import { ScoreProps } from '../types/props';
+
+export default function Score(props: ScoreProps) {
   return (
-    <tr>
-      <td>에이스</td>
+    <tr
+      className={props.isDecided ? undefined : 'not-decided-score'}
+      onClick={props.onScoreClick}
+    >
+      <td>{props.displayedScoreName}</td>
       <td>
-        <span data-cy="ace"></span>
+        <span data-cy={props.cyName}>{props.scoreValue}</span>
       </td>
     </tr>
   );

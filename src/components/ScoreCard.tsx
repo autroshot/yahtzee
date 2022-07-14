@@ -9,32 +9,23 @@ import {
   calculateUpperTotal,
   createInitialScores,
 } from '../utils/score';
+import Score from './Score';
 
 export default function ScoreCard(props: ScoreCardProps) {
   const [scores, setScores] = useState<Scores>(createInitialScores());
 
-  const diceValues = props.diceValues;
-
-  const calculateScore = diceValues ? new CalculateScore(diceValues) : null;
+  const calculateScore = new CalculateScore(props.diceValues);
 
   return (
     <Table bordered>
       <tbody>
-        <tr
-          className={scores.ace === null ? 'not-decided-score' : undefined}
-          onClick={
-            calculateScore
-              ? () => handleScoreClick('ace', calculateScore.upper(1))
-              : undefined
-          }
-        >
-          <td>에이스</td>
-          <td>
-            <span data-cy="ace">
-              {scores.ace ?? (calculateScore ? calculateScore.upper(1) : null)}
-            </span>
-          </td>
-        </tr>
+        <Score
+          displayedScoreName="에이스"
+          cyName="ace"
+          scoreValue={scores.ace ?? calculateScore.upper(1)}
+          isDecided={scores.ace ? true : false}
+          onScoreClick={() => handleScoreClick('ace', calculateScore.upper(1))}
+        />
         <tr className={scores.dual === null ? 'not-decided-score' : undefined}>
           <td>듀얼</td>
           <td>
@@ -154,13 +145,14 @@ export default function ScoreCard(props: ScoreCardProps) {
     </Table>
   );
 
-  function handleScoreClick(scoreName: string, scoreValue: number) {
-    if (scores[scoreName] === null) {
-      const scoresCopy = { ...scores };
+  function handleScoreClick(scoreName: string, scoreValue: number | null) {
+    if (!scoreValue) return;
+    if (scores[scoreName] !== null) return;
 
-      scoresCopy[scoreName] = scoreValue;
+    const scoresCopy = { ...scores };
 
-      setScores(scoresCopy);
-    }
+    scoresCopy[scoreName] = scoreValue;
+
+    setScores(scoresCopy);
   }
 }

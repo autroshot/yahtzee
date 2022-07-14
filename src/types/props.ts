@@ -1,5 +1,4 @@
 import { Dice } from './dice';
-import { Scores } from './scores';
 
 export interface DiceRollingProps {
   dices: Dice[] | null;
@@ -23,8 +22,9 @@ export interface ScoreCardProps {
 }
 
 export interface ScoreProps {
-  scoreName: string;
-  scoreValue: number;
+  displayedScoreName: string;
+  cyName: string;
+  scoreValue: number | null;
   isDecided: boolean;
-  handleScoreClick: (scoreName: string, scoreValue: number) => void;
+  onScoreClick: () => void;
 }

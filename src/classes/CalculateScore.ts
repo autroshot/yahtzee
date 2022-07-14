@@ -1,19 +1,25 @@
 export default class CalculateScore {
-  _diceValues: number[];
+  _diceValues: number[] | null;
 
-  constructor(dices: number[]) {
+  constructor(dices: number[] | null) {
     this._diceValues = dices;
   }
 
   upper(target: number) {
+    if (!this._diceValues) return null;
+
     return this._diceValues.filter((value) => value === target).length * target;
   }
 
   choice() {
+    if (!this._diceValues) return null;
+
     return this._sum();
   }
 
   poker() {
+    if (!this._diceValues) return null;
+
     let result = 0;
 
     const x = { value: this._diceValues[0], count: 0 };
@@ -41,6 +47,8 @@ export default class CalculateScore {
   }
 
   fullHouse() {
+    if (!this._diceValues) return null;
+
     const diceValuesCount = this._getDiceValuesCount();
 
     if (diceValuesCount.includes(2) && diceValuesCount.includes(3)) {
@@ -53,6 +61,8 @@ export default class CalculateScore {
   }
 
   smallStraight() {
+    if (!this._diceValues) return null;
+
     const diceValuesCount = this._getDiceValuesCount();
 
     if (
@@ -83,6 +93,8 @@ export default class CalculateScore {
   }
 
   largeStraight() {
+    if (!this._diceValues) return null;
+
     if (JSON.stringify(this._diceValues) === JSON.stringify([1, 2, 3, 4, 5])) {
       return 30;
     }
@@ -93,6 +105,8 @@ export default class CalculateScore {
   }
 
   yacht() {
+    if (!this._diceValues) return null;
+
     const diceValuesCount = this._getDiceValuesCount();
 
     if (diceValuesCount.includes(5)) {
@@ -102,10 +116,14 @@ export default class CalculateScore {
   }
 
   _sum() {
+    if (!this._diceValues) return null;
+
     return this._diceValues.reduce((sum, value) => sum + value, 0);
   }
 
   _getDiceValuesCount() {
+    if (!this._diceValues) return new Array(6).fill(0);
+
     const diceValuesCountMap = new Map([
       [1, 0],
       [2, 0],
