@@ -23,7 +23,22 @@ export default function ScoreCard(props: ScoreCardProps) {
     { name: 'penta', displayedName: '펜타', cyName: 'penta' },
     { name: 'hexa', displayedName: '헥사', cyName: 'hexa' },
   ];
-  const lowerScoreParams = [{ displayedName: '초이스', name: 'choice' }];
+  const lowerScoreParams = [
+    { name: 'choice', displayedName: '초이스', cyName: 'choice' },
+    { name: 'poker', displayedName: '포커', cyName: 'poker' },
+    { name: 'fullHouse', displayedName: '풀 하우스', cyName: 'full-house' },
+    {
+      name: 'smallStraight',
+      displayedName: '스몰 스트레이트',
+      cyName: 'small-straight',
+    },
+    {
+      name: 'largeStraight',
+      displayedName: '라지 스트레이트',
+      cyName: 'large-straight',
+    },
+    { name: 'yacht', displayedName: '요트', cyName: 'yacht' },
+  ];
 
   return (
     <Table bordered>
