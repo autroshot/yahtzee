@@ -1,4 +1,5 @@
 export interface Scores {
+  [key: string]: number | null;
   ace: number | null;
   dual: number | null;
   triple: number | null;

@@ -158,4 +158,8 @@ export default function ScoreCard(props: ScoreCardProps) {
       </Row>
     </>
   );
+
+  function handleScoreClick(scoreName: string, scoreValue: number) {
+    const scoresCopy = { ...scores };
+  }
 }
