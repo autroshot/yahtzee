@@ -28,7 +28,7 @@ export default function App() {
           <h1>요트 다이스</h1>
         </Col>
       </Row>
-      <Info rollCount={rollCount} />
+      <Info round={round} rollCount={rollCount} />
       <DiceRolling
         dices={dices}
         onRollDicesClick={handleRollDicesClick}

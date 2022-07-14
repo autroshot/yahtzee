@@ -14,6 +14,7 @@ export interface DiceProps {
 }
 
 export interface InfoProps {
+  round: number;
   rollCount: number;
 }
 
