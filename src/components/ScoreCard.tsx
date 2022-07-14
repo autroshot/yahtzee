@@ -161,5 +161,9 @@ export default function ScoreCard(props: ScoreCardProps) {
 
   function handleScoreClick(scoreName: string, scoreValue: number) {
     const scoresCopy = { ...scores };
+
+    scoresCopy[scoreName] = scoreValue;
+
+    setScores(scoresCopy);
   }
 }
