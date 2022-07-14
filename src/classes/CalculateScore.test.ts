@@ -65,4 +65,23 @@ describe('CalculateScore의 점수 계산 기능', () => {
       expect(calculateScore.largeStraight()).toEqual(diceValuesTestData.result);
     });
   });
+
+  it('yacht', () => {
+    const diceValuesTestDatas = [
+      { diceValues: [1, 2, 3, 4, 5], result: 0 },
+      { diceValues: [3, 3, 3, 3, 4], result: 0 },
+      { diceValues: new Array(5).fill(1), result: 50 },
+      { diceValues: new Array(5).fill(2), result: 50 },
+      { diceValues: new Array(5).fill(3), result: 50 },
+      { diceValues: new Array(5).fill(4), result: 50 },
+      { diceValues: new Array(5).fill(5), result: 50 },
+      { diceValues: new Array(5).fill(6), result: 50 },
+    ];
+
+    diceValuesTestDatas.forEach((diceValuesTestData) => {
+      const calculateScore = new CalculateScore(diceValuesTestData.diceValues);
+
+      expect(calculateScore.yacht()).toEqual(diceValuesTestData.result);
+    });
+  });
 });
