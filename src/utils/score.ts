@@ -39,9 +39,9 @@ export function calculateBonus(scores: Scores) {
 export function calculateTotal(scores: Scores) {
   let result = 0;
 
-  Object.values(scores).reduce((sum, score) => {
-    return (sum ?? 0) + (score ?? 0);
-  }, 0);
+  result += Object.values(scores).reduce((sum, score) => {
+    return (sum as number) + (score ?? 0);
+  }, 0) as number;
 
   result += calculateBonus(scores);
 

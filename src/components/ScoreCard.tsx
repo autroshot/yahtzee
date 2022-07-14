@@ -12,7 +12,7 @@ import {
 
 export default function ScoreCard(props: ScoreCardProps) {
   const [scores, setScores] = useState<Scores>(createInitialScores());
-
+  console.log(scores);
   const diceValues = props.diceValues;
 
   const calculateScore = diceValues ? new CalculateScore(diceValues) : null;
@@ -23,7 +23,16 @@ export default function ScoreCard(props: ScoreCardProps) {
         <Col sm="auto">
           <Table bordered>
             <tbody>
-              <tr className={scores.ace ? undefined : 'not-decided-score'}>
+              <tr
+                className={
+                  scores.ace === null ? 'not-decided-score' : undefined
+                }
+                onClick={
+                  calculateScore
+                    ? () => handleScoreClick('ace', calculateScore.upper(1))
+                    : undefined
+                }
+              >
                 <td>에이스</td>
                 <td>
                   <span data-cy="ace">
@@ -32,7 +41,11 @@ export default function ScoreCard(props: ScoreCardProps) {
                   </span>
                 </td>
               </tr>
-              <tr className={scores.ace ? undefined : 'not-decided-score'}>
+              <tr
+                className={
+                  scores.dual === null ? 'not-decided-score' : undefined
+                }
+              >
                 <td>듀얼</td>
                 <td>
                   <span data-cy="dual">
@@ -41,7 +54,11 @@ export default function ScoreCard(props: ScoreCardProps) {
                   </span>
                 </td>
               </tr>
-              <tr className={scores.ace ? undefined : 'not-decided-score'}>
+              <tr
+                className={
+                  scores.triple === null ? 'not-decided-score' : undefined
+                }
+              >
                 <td>트리플</td>
                 <td>
                   <span data-cy="triple">
@@ -160,10 +177,12 @@ export default function ScoreCard(props: ScoreCardProps) {
   );
 
   function handleScoreClick(scoreName: string, scoreValue: number) {
-    const scoresCopy = { ...scores };
+    if (scores[scoreName] === null) {
+      const scoresCopy = { ...scores };
 
-    scoresCopy[scoreName] = scoreValue;
+      scoresCopy[scoreName] = scoreValue;
 
-    setScores(scoresCopy);
+      setScores(scoresCopy);
+    }
   }
 }
