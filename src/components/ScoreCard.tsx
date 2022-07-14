@@ -15,61 +15,32 @@ export default function ScoreCard(props: ScoreCardProps) {
   const [scores, setScores] = useState<Scores>(createInitialScores());
 
   const calculateScore = new CalculateScore(props.diceValues);
+  const upperScoreParams = [
+    { displayedName: '에이스', name: 'ace' },
+    { displayedName: '듀얼', name: 'dual' },
+    { displayedName: '트리플', name: 'triple' },
+    { displayedName: '쿼드', name: 'quad' },
+    { displayedName: '펜타', name: 'penta' },
+    { displayedName: '헥사', name: 'hexa' },
+  ];
 
   return (
     <Table bordered>
       <tbody>
-        <Score
-          displayedScoreName="에이스"
-          cyName="ace"
-          scoreValue={scores.ace ?? calculateScore.upper(1)}
-          isDecided={scores.ace ? true : false}
-          onScoreClick={() => handleScoreClick('ace', calculateScore.upper(1))}
-        />
-        <tr className={scores.dual === null ? 'not-decided-score' : undefined}>
-          <td>듀얼</td>
-          <td>
-            <span data-cy="dual">
-              {scores.dual ?? (calculateScore ? calculateScore.upper(2) : null)}
-            </span>
-          </td>
-        </tr>
-        <tr
-          className={scores.triple === null ? 'not-decided-score' : undefined}
-        >
-          <td>트리플</td>
-          <td>
-            <span data-cy="triple">
-              {scores.triple ??
-                (calculateScore ? calculateScore.upper(3) : null)}
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td>쿼드</td>
-          <td>
-            <span data-cy="quad">
-              {scores.quad ?? (calculateScore ? calculateScore.upper(4) : null)}
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td>펜타</td>
-          <td>
-            <span data-cy="penta">
-              {scores.penta ??
-                (calculateScore ? calculateScore.upper(5) : null)}
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td>헥사</td>
-          <td>
-            <span data-cy="hexa">
-              {scores.hexa ?? (calculateScore ? calculateScore.upper(6) : null)}
-            </span>
-          </td>
-        </tr>
+        {upperScoreParams.map((scoreParam, index) => {
+          const scoreValue = calculateScore.upper(index + 1);
+
+          return (
+            <Score
+              key={scoreParam.name}
+              displayedName={scoreParam.displayedName}
+              cyName={scoreParam.name}
+              scoreValue={scores[scoreParam.name] ?? scoreValue}
+              isDecided={scores[scoreParam.name] ? true : false}
+              onScoreClick={() => handleScoreClick(scoreParam.name, scoreValue)}
+            />
+          );
+        })}
         <tr className="total-score">
           <td>상단 점수의 합이 63점 이상이라면</td>
           <td>

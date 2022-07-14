@@ -22,7 +22,7 @@ export interface ScoreCardProps {
 }
 
 export interface ScoreProps {
-  displayedScoreName: string;
+  displayedName: string;
   cyName: string;
   scoreValue: number | null;
   isDecided: boolean;
