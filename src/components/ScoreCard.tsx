@@ -23,7 +23,7 @@ export default function ScoreCard(props: ScoreCardProps) {
     { name: 'penta', displayedName: '펜타', cyName: 'penta' },
     { name: 'hexa', displayedName: '헥사', cyName: 'hexa' },
   ];
-  const lowerScoreParams = [
+  const lowerScoreNamesArray = [
     { name: 'choice', displayedName: '초이스', cyName: 'choice' },
     { name: 'poker', displayedName: '포커', cyName: 'poker' },
     { name: 'fullHouse', displayedName: '풀 하우스', cyName: 'full-house' },
@@ -69,58 +69,21 @@ export default function ScoreCard(props: ScoreCardProps) {
             <span data-cy="bonus">{calculateBonus(scores)}</span>
           </td>
         </tr>
-        <tr>
-          <td>초이스</td>
-          <td>
-            <span data-cy="choice">
-              {scores.choice ??
-                (calculateScore ? calculateScore.choice() : null)}
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td>포커</td>
-          <td>
-            <span data-cy="poker">
-              {scores.poker ?? (calculateScore ? calculateScore.poker() : null)}
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td>풀 하우스</td>
-          <td>
-            <span data-cy="full-house">
-              {scores.fullHouse ??
-                (calculateScore ? calculateScore.fullHouse() : null)}
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td>스몰 스트레이트</td>
-          <td>
-            <span data-cy="small-straight">
-              {scores.smallStraight ??
-                (calculateScore ? calculateScore.smallStraight() : null)}
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td>라지 스트레이트</td>
-          <td>
-            <span data-cy="large-straight">
-              {scores.largeStraight ??
-                (calculateScore ? calculateScore.largeStraight() : null)}
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <td>요트</td>
-          <td>
-            <span data-cy="yacht">
-              {scores.yacht ?? (calculateScore ? calculateScore.yacht() : null)}
-            </span>
-          </td>
-        </tr>
+        {lowerScoreNamesArray.map((scoreNames) => {
+          const scoreValue = (
+            calculateScore[scoreNames.name] as () => number | null
+          )();
+
+          return (
+            <Score
+              key={scoreNames.name}
+              names={scoreNames}
+              scoreValue={scores[scoreNames.name] ?? scoreValue}
+              isDecided={scores[scoreNames.name] ? true : false}
+              onScoreClick={() => handleScoreClick(scoreNames.name, scoreValue)}
+            />
+          );
+        })}
         <tr className="total-score">
           <td>총점</td>
           <td>

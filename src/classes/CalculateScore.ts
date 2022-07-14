@@ -1,4 +1,11 @@
 export default class CalculateScore {
+  [key: string]:
+    | null
+    | number[]
+    | (() => number | null)
+    | ((target: number) => number | null)
+    | (() => number[]);
+
   _diceValues: number[] | null;
 
   constructor(dices: number[] | null) {
@@ -122,7 +129,7 @@ export default class CalculateScore {
   }
 
   _getDiceValuesCount() {
-    if (!this._diceValues) return new Array(6).fill(0);
+    if (!this._diceValues) return new Array(6).fill(0) as number[];
 
     const diceValuesCountMap = new Map([
       [1, 0],
