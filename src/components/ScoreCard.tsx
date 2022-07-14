@@ -15,29 +15,29 @@ export default function ScoreCard(props: ScoreCardProps) {
   const [scores, setScores] = useState<Scores>(createInitialScores());
 
   const calculateScore = new CalculateScore(props.diceValues);
-  const upperScoreParams = [
-    { displayedName: '에이스', name: 'ace' },
-    { displayedName: '듀얼', name: 'dual' },
-    { displayedName: '트리플', name: 'triple' },
-    { displayedName: '쿼드', name: 'quad' },
-    { displayedName: '펜타', name: 'penta' },
-    { displayedName: '헥사', name: 'hexa' },
+  const upperScoreNamesArray = [
+    { name: 'ace', displayedName: '에이스', cyName: 'ace' },
+    { name: 'dual', displayedName: '듀얼', cyName: 'dual' },
+    { name: 'triple', displayedName: '트리플', cyName: 'triple' },
+    { name: 'quad', displayedName: '쿼드', cyName: 'quad' },
+    { name: 'penta', displayedName: '펜타', cyName: 'penta' },
+    { name: 'hexa', displayedName: '헥사', cyName: 'hexa' },
   ];
+  const lowerScoreParams = [{ displayedName: '초이스', name: 'choice' }];
 
   return (
     <Table bordered>
       <tbody>
-        {upperScoreParams.map((scoreParam, index) => {
+        {upperScoreNamesArray.map((scoreNames, index) => {
           const scoreValue = calculateScore.upper(index + 1);
 
           return (
             <Score
-              key={scoreParam.name}
-              displayedName={scoreParam.displayedName}
-              cyName={scoreParam.name}
-              scoreValue={scores[scoreParam.name] ?? scoreValue}
-              isDecided={scores[scoreParam.name] ? true : false}
-              onScoreClick={() => handleScoreClick(scoreParam.name, scoreValue)}
+              key={scoreNames.name}
+              names={scoreNames}
+              scoreValue={scores[scoreNames.name] ?? scoreValue}
+              isDecided={scores[scoreNames.name] ? true : false}
+              onScoreClick={() => handleScoreClick(scoreNames.name, scoreValue)}
             />
           );
         })}
