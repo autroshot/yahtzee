@@ -29,7 +29,7 @@ export function calculateUpperTotal(scores: Scores) {
 }
 
 export function calculateBonus(scores: Scores) {
-  if (calculateUpperTotal(scores) >= 65) {
+  if (calculateUpperTotal(scores) >= 63) {
     return 35;
   } else {
     return 0;
