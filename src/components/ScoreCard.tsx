@@ -58,7 +58,7 @@ export default function ScoreCard(props: ScoreCardProps) {
         })}
         <tr className="total-score">
           <td>상단 점수의 합이 63점 이상이라면</td>
-          <td>
+          <td className="score-value-col">
             <span data-cy="upper-total">{calculateUpperTotal(scores)}</span>
             /63
           </td>

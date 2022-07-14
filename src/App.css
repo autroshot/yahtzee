@@ -55,3 +55,7 @@
   background-color: gray;
   color: white;
 }
+
+.score-value-col {
+  width: 3.9rem;
+}
