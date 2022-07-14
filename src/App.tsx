@@ -17,6 +17,7 @@ import {
 } from './utils/dice';
 
 export default function App() {
+  const [round, setRound] = useState(1);
   const [rollCount, setRollCount] = useState(0);
   const [dices, setDices] = useState<Dice[] | null>(null);
 
