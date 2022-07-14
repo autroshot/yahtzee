@@ -13,7 +13,7 @@ import Score from './Score';
 
 export default function ScoreCard(props: ScoreCardProps) {
   const [scores, setScores] = useState<Scores>(createInitialScores());
-
+  console.log(scores);
   const calculateScore = new CalculateScore(props.diceValues);
   const upperScoreNamesArray = [
     { name: 'ace', displayedName: '에이스', cyName: 'ace' },
@@ -51,7 +51,7 @@ export default function ScoreCard(props: ScoreCardProps) {
               key={scoreNames.name}
               names={scoreNames}
               scoreValue={scores[scoreNames.name] ?? scoreValue}
-              isDecided={scores[scoreNames.name] ? true : false}
+              isDecided={scores[scoreNames.name] !== null ? true : false}
               onScoreClick={() => handleScoreClick(scoreNames.name, scoreValue)}
             />
           );
@@ -79,7 +79,7 @@ export default function ScoreCard(props: ScoreCardProps) {
               key={scoreNames.name}
               names={scoreNames}
               scoreValue={scores[scoreNames.name] ?? scoreValue}
-              isDecided={scores[scoreNames.name] ? true : false}
+              isDecided={scores[scoreNames.name] !== null ? true : false}
               onScoreClick={() => handleScoreClick(scoreNames.name, scoreValue)}
             />
           );
@@ -95,7 +95,7 @@ export default function ScoreCard(props: ScoreCardProps) {
   );
 
   function handleScoreClick(scoreName: string, scoreValue: number | null) {
-    if (!scoreValue) return;
+    if (scoreValue === null) return;
     if (scores[scoreName] !== null) return;
 
     const scoresCopy = { ...scores };
