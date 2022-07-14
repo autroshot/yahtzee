@@ -19,6 +19,7 @@ export interface InfoProps {
 
 export interface ScoreCardProps {
   diceValues: number[] | null;
+  goNextRound: () => void;
 }
 
 export interface ScoreProps {

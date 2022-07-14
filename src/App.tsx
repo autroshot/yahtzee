@@ -44,6 +44,7 @@ export default function App() {
         <Col sm="auto">
           <ScoreCard
             diceValues={dices ? dices.map((dice) => dice.value) : null}
+            goNextRound={goNextRound}
           />
         </Col>
       </Row>
@@ -91,5 +92,9 @@ export default function App() {
         setDices(changeKeptOfSelectedDices(true, dices));
         break;
     }
+  }
+
+  function goNextRound() {
+    console.log('go next round!');
   }
 }

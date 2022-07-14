@@ -14,6 +14,7 @@ import Score from './Score';
 export default function ScoreCard(props: ScoreCardProps) {
   const [scores, setScores] = useState<Scores>(createInitialScores());
   console.log(scores);
+
   const calculateScore = new CalculateScore(props.diceValues);
   const upperScoreNamesArray = [
     { name: 'ace', displayedName: '에이스', cyName: 'ace' },
@@ -103,5 +104,6 @@ export default function ScoreCard(props: ScoreCardProps) {
     scoresCopy[scoreName] = scoreValue;
 
     setScores(scoresCopy);
+    props.goNextRound();
   }
 }
