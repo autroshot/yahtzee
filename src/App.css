@@ -36,3 +36,17 @@
 .dices-container {
   height: 4.5rem;
 }
+
+.not-decided-score:hover {
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+}
+
+.not-decided-score td:last-child {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.not-decided-score:hover td:last-child {
+  color: white;
+}
