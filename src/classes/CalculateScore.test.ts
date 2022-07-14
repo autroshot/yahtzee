@@ -10,6 +10,7 @@ describe('CalculateScore의 점수 계산 기능', () => {
       { diceValues: [6, 6, 6, 6, 6], result: 30 },
       { diceValues: [1, 6, 6, 6, 6], result: 25 },
     ];
+
     diceValuesTestDatas.forEach((diceValuesTestData) => {
       const calculateScore = new CalculateScore(diceValuesTestData.diceValues);
 
@@ -26,6 +27,7 @@ describe('CalculateScore의 점수 계산 기능', () => {
       { diceValues: [3, 3, 3, 4, 4], result: 17 },
       { diceValues: [3, 3, 6, 6, 6], result: 24 },
     ];
+
     diceValuesTestDatas.forEach((diceValuesTestData) => {
       const calculateScore = new CalculateScore(diceValuesTestData.diceValues);
 
@@ -41,10 +43,26 @@ describe('CalculateScore의 점수 계산 기능', () => {
       { diceValues: [1, 2, 3, 4, 4], result: 15 },
       { diceValues: [1, 2, 3, 4, 5], result: 15 },
     ];
+
     diceValuesTestDatas.forEach((diceValuesTestData) => {
       const calculateScore = new CalculateScore(diceValuesTestData.diceValues);
 
       expect(calculateScore.smallStraight()).toEqual(diceValuesTestData.result);
+    });
+  });
+
+  it('largeStraight', () => {
+    const diceValuesTestDatas = [
+      { diceValues: [1, 1, 1, 1, 1], result: 0 },
+      { diceValues: [1, 2, 3, 4, 4], result: 0 },
+      { diceValues: [1, 2, 3, 4, 5], result: 30 },
+      { diceValues: [2, 3, 4, 5, 6], result: 30 },
+    ];
+
+    diceValuesTestDatas.forEach((diceValuesTestData) => {
+      const calculateScore = new CalculateScore(diceValuesTestData.diceValues);
+
+      expect(calculateScore.largeStraight()).toEqual(diceValuesTestData.result);
     });
   });
 });
