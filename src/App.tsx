@@ -53,14 +53,10 @@ export default function App() {
 
   function handleRollDicesClick() {
     if (!dices) {
-      const initialDices = createInitialDices();
-
-      setDices(sortDices(initialDices));
+      setDices(sortDices(createInitialDices()));
       setRollCount(rollCount + 1);
     } else if (rollCount < 3 && dices.some((dice) => !dice.kept)) {
-      const rolledDices = sortDices(rollDices(dices));
-
-      setDices(rolledDices);
+      setDices(sortDices(rollDices(dices)));
       setRollCount(rollCount + 1);
     }
   }
