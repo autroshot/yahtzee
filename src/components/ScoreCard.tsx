@@ -4,11 +4,23 @@ import CalculateScore from '../classes/CalculateScore';
 import CalculateTotalScore from '../classes/CalculateTotalScore';
 import { ScoreCardProps } from '../types/props';
 import { Scores } from '../types/scores';
-import { createInitialScores } from '../utils/score';
 import Score from './Score';
 
 export default function ScoreCard(props: ScoreCardProps) {
-  const [scores, setScores] = useState<Scores>(createInitialScores());
+  const [scores, setScores] = useState<Scores>({
+    ace: null,
+    dual: null,
+    triple: null,
+    quad: null,
+    penta: null,
+    hexa: null,
+    choice: null,
+    poker: null,
+    fullHouse: null,
+    smallStraight: null,
+    largeStraight: null,
+    yacht: null,
+  });
 
   const calculateScore = new CalculateScore(props.diceValues);
   const calculateTotalScore = new CalculateTotalScore(scores);
