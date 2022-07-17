@@ -11,14 +11,14 @@ export default class RollDices {
     }
   }
 
-  rollDices() {
+  roll() {
     if (this.#dices === null) return this.#createInitialDices();
     return this.#dices
       .map((dice) => {
         if (dice.kept) return dice;
         return {
           key: dice.key,
-          value: this.#getRandomDiceValue(),
+          value: this.#getRandomValue(),
           kept: false,
           selected: false,
         };
@@ -32,7 +32,7 @@ export default class RollDices {
     for (let i = 1; i <= 5; i++) {
       result.push({
         key: i,
-        value: this.#getRandomDiceValue(),
+        value: this.#getRandomValue(),
         kept: false,
         selected: false,
       });
@@ -42,7 +42,7 @@ export default class RollDices {
     return result;
   }
 
-  #getRandomDiceValue() {
+  #getRandomValue() {
     return Math.floor(1 + Math.random() * 6);
   }
 }

@@ -8,16 +8,18 @@ import { useState } from 'react';
 import { Dice } from './types/dice';
 import {
   changeKeptOfSelectedDices,
-  rollDices,
   toggleDiceSelected,
   getKeptOfSelectedDice,
   getDeselectedOtherDices,
 } from './utils/dice';
+import RollDices from './classes/RollDices';
 
 export default function App() {
   const [round, setRound] = useState(1);
   const [rollCount, setRollCount] = useState(0);
   const [dices, setDices] = useState<Dice[] | null>(null);
+
+  const rollDices = new RollDices(dices);
 
   return (
     <Container className="app">
@@ -51,7 +53,7 @@ export default function App() {
 
   function handleRollDicesClick() {
     if (dices && (rollCount >= 3 || dices.every((dice) => dice.kept))) return;
-    setDices(rollDices(dices));
+    setDices(rollDices.roll());
     setRollCount(rollCount + 1);
   }
 
