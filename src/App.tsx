@@ -8,7 +8,6 @@ import { useState } from 'react';
 import { Dice } from './types/dice';
 import {
   changeKeptOfSelectedDices,
-  createInitialDices,
   rollDices,
   toggleDiceSelected,
   getKeptOfSelectedDice,
@@ -52,7 +51,7 @@ export default function App() {
 
   function handleRollDicesClick() {
     if (!dices) {
-      setDices(createInitialDices());
+      setDices(rollDices(dices));
       setRollCount(rollCount + 1);
     } else if (rollCount < 3 && dices.some((dice) => !dice.kept)) {
       setDices(rollDices(dices));

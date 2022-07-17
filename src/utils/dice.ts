@@ -1,6 +1,6 @@
 import { Dice } from '../types/dice';
 
-export function createInitialDices() {
+function createInitialDices() {
   const result: Dice[] = [];
 
   for (let i = 1; i <= 5; i++) {
@@ -20,7 +20,8 @@ export function getRandomDiceValue() {
   return Math.floor(1 + Math.random() * 6);
 }
 
-export function rollDices(dices: Dice[]) {
+export function rollDices(dices: Dice[] | null) {
+  if (dices === null) return createInitialDices();
   return dices
     .map(function (dice): Dice {
       if (dice.kept) return dice;
