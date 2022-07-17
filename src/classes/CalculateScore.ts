@@ -9,7 +9,11 @@ export default class CalculateScore {
   #diceValues: number[] | null;
 
   constructor(dices: number[] | null) {
-    this.#diceValues = dices;
+    if (!dices) {
+      this.#diceValues = null;
+    } else {
+      this.#diceValues = [...dices];
+    }
   }
 
   upper(target: number) {
