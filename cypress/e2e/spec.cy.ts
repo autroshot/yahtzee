@@ -238,6 +238,16 @@ describe('점수 결정하기', () => {
     cy.get('[data-cy="ace"]').should('not.have.text');
   });
 
+  it('점수 결정 시 다음 라운드로 가기', () => {
+    cy.contains('주사위 굴리기').click();
+    cy.contains('에이스').click();
+
+    cy.get('[data-cy="round"]').should('have.text', '2');
+    cy.get('[data-cy="roll-count"]').should('have.text', '0');
+    cy.get('[data-cy="instruction"]').should('have.text', '주사위를 굴리세요.');
+    cy.get('[data-cy="rolled-dices"]').children().should('not.exist');
+  });
+
   it('점수 헥사로 결정하기', () => {
     cy.contains('주사위 굴리기').click();
 
@@ -254,6 +264,22 @@ describe('점수 결정하기', () => {
       cy.contains('헥사').next().should('have.text', hexaScore);
       cy.get('[data-cy="upper-total"').should('have.text', hexaScore);
       cy.contains('총점').next().should('have.text', hexaScore);
+    });
+  });
+
+  it('점수 초이스로 결정하기', () => {
+    cy.contains('주사위 굴리기').click();
+
+    cy.get('[data-cy="rolled-dices"] button').then((dices) => {
+      const diceValues = getDiceValues(dices);
+      const choiceScore = diceValues.reduce((sum, value) => sum + value, 0);
+
+      cy.contains('초이스').click();
+
+      cy.contains('초이스').parent().should('have.class', 'decided-score');
+      cy.contains('초이스').next().should('have.text', choiceScore);
+      cy.get('[data-cy="upper-total"').should('have.text', 0);
+      cy.contains('총점').next().should('have.text', choiceScore);
     });
   });
 });
