@@ -228,6 +228,36 @@ describe('주사위 선택 및 보관하기', () => {
   });
 });
 
+describe('점수 결정하기', () => {
+  beforeEach(() => {
+    cy.visit('/');
+  });
+
+  it('주사위 굴림 이전에 점수 결정 시 무반응', () => {
+    cy.contains('에이스').click();
+    cy.get('[data-cy="ace"]').should('not.have.text');
+  });
+
+  it('점수 헥사로 결정하기', () => {
+    cy.contains('주사위 굴리기').click();
+
+    cy.get('[data-cy="rolled-dices"] button').then((dices) => {
+      const diceValues = getDiceValues(dices);
+      const hexaScore = diceValues.reduce((sum, value) => {
+        if (value === 6) return sum + value;
+        return sum;
+      }, 0);
+
+      cy.contains('헥사').click();
+
+      cy.contains('헥사').parent().should('have.class', 'decided-score');
+      cy.contains('헥사').next().should('have.text', hexaScore);
+      cy.get('[data-cy="upper-total"').should('have.text', hexaScore);
+      cy.contains('총점').next().should('have.text', hexaScore);
+    });
+  });
+});
+
 function getDiceValues(dices: JQuery<HTMLElement>): number[] {
   let result: number[] = [];
 

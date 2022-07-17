@@ -13,7 +13,6 @@ import Score from './Score';
 
 export default function ScoreCard(props: ScoreCardProps) {
   const [scores, setScores] = useState<Scores>(createInitialScores());
-  console.log(scores);
 
   const calculateScore = new CalculateScore(props.diceValues);
   const upperScoreNamesArray = [
