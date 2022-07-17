@@ -26,7 +26,7 @@ export default class Dices {
       .sort((a, b) => a.value - b.value);
   }
 
-  toggleDiceSelected(key: number) {
+  toggleSelectedOfSelectedDice(key: number) {
     if (!this.#dices) return null;
 
     const result = [...this.#dices];
@@ -61,7 +61,7 @@ export default class Dices {
     return foundDice.kept;
   }
 
-  getDeselectedOtherDices(key: number): Dice[] | null {
+  getDeselectedDicesExceptTarget(key: number): Dice[] | null {
     if (!this.#dices) return null;
 
     return this.#dices.map((dice) => {
