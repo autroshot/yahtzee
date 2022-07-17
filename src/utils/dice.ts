@@ -16,7 +16,7 @@ function createInitialDices() {
   return result;
 }
 
-export function getRandomDiceValue() {
+function getRandomDiceValue() {
   return Math.floor(1 + Math.random() * 6);
 }
 
