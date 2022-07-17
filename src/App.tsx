@@ -10,7 +10,6 @@ import {
   changeKeptOfSelectedDices,
   createInitialDices,
   rollDices,
-  sortDices,
   toggleDiceSelected,
   getKeptOfSelectedDice,
   getDeselectedOtherDices,
@@ -53,10 +52,10 @@ export default function App() {
 
   function handleRollDicesClick() {
     if (!dices) {
-      setDices(sortDices(createInitialDices()));
+      setDices(createInitialDices());
       setRollCount(rollCount + 1);
     } else if (rollCount < 3 && dices.some((dice) => !dice.kept)) {
-      setDices(sortDices(rollDices(dices)));
+      setDices(rollDices(dices));
       setRollCount(rollCount + 1);
     }
   }

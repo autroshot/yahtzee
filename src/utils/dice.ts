@@ -11,6 +11,7 @@ export function createInitialDices() {
       selected: false,
     });
   }
+  result.sort((a, b) => a.value - b.value);
 
   return result;
 }
@@ -19,24 +20,18 @@ export function getRandomDiceValue() {
   return Math.floor(1 + Math.random() * 6);
 }
 
-export function sortDices(dices: Dice[]): Dice[] {
-  const result = [...dices];
-
-  result.sort((a, b) => a.value - b.value);
-
-  return result;
-}
-
 export function rollDices(dices: Dice[]) {
-  return dices.map(function (dice): Dice {
-    if (dice.kept) return dice;
-    return {
-      key: dice.key,
-      value: getRandomDiceValue(),
-      kept: false,
-      selected: false,
-    };
-  });
+  return dices
+    .map(function (dice): Dice {
+      if (dice.kept) return dice;
+      return {
+        key: dice.key,
+        value: getRandomDiceValue(),
+        kept: false,
+        selected: false,
+      };
+    })
+    .sort((a, b) => a.value - b.value);
 }
 
 export function toggleDiceSelected(key: number, dices: Dice[]) {
