@@ -7,7 +7,7 @@ export default class SelectDices {
     this.#dices = [...dices];
   }
 
-  toggleSelectedOfSelectedDice(key: number) {
+  toggleSelected(key: number) {
     const result = [...this.#dices];
 
     for (let i = 0; i < result.length; i++) {

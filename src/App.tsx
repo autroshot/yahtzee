@@ -6,13 +6,8 @@ import ScoreCard from './components/ScoreCard';
 import DiceRolling from './components/DiceRolling';
 import { useState } from 'react';
 import { Dice } from './types/dice';
-import {
-  changeKeptOfSelectedDices,
-  toggleDiceSelected,
-  getKeptOfSelectedDice,
-  getDeselectedOtherDices,
-} from './utils/dice';
 import RollDices from './classes/RollDices';
+import SelectDices from './classes/SelectDices';
 
 export default function App() {
   const [round, setRound] = useState(1);
@@ -59,29 +54,32 @@ export default function App() {
 
   function handleDiceClick(key: number) {
     if (!dices) return;
+
+    const selectDices = new SelectDices(dices);
     if (dices.every((dice) => !dice.selected)) {
-      setDices(toggleDiceSelected(key, dices));
+      setDices(selectDices.toggleSelected(key));
       return;
     }
 
     const clickedDice = dices.find((dice) => dice.key === key) as Dice;
-    if (clickedDice.kept !== getKeptOfSelectedDice(dices)) {
-      setDices(getDeselectedOtherDices(key, dices));
+    if (clickedDice.kept !== selectDices.getKeptOfSelectedDice()) {
+      setDices(selectDices.getDeselectedDicesExceptTarget(key));
       return;
     }
 
-    setDices(toggleDiceSelected(key, dices));
+    setDices(selectDices.toggleSelected(key));
   }
 
   function handleMoveDicesClick(direction: string) {
     if (!dices) return;
 
+    const selectDices = new SelectDices(dices);
     switch (direction) {
       case 'up':
-        setDices(changeKeptOfSelectedDices(false, dices));
+        setDices(selectDices.changeKeptOfSelectedDices(false));
         break;
       case 'down':
-        setDices(changeKeptOfSelectedDices(true, dices));
+        setDices(selectDices.changeKeptOfSelectedDices(true));
         break;
     }
   }
