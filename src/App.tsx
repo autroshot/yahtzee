@@ -50,10 +50,9 @@ export default function App() {
   );
 
   function handleRollDicesClick() {
-    if (!dices || (rollCount < 3 && dices.some((dice) => !dice.kept))) {
-      setDices(rollDices(dices));
-      setRollCount(rollCount + 1);
-    }
+    if (dices && (rollCount >= 3 || dices.every((dice) => dice.kept))) return;
+    setDices(rollDices(dices));
+    setRollCount(rollCount + 1);
   }
 
   function handleDiceClick(key: number) {
