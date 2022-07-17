@@ -1,20 +1,18 @@
 import { useState } from 'react';
 import { Table } from 'react-bootstrap';
 import CalculateScore from '../classes/CalculateScore';
+import CalculateTotalScore from '../classes/CalculateTotalScore';
 import { ScoreCardProps } from '../types/props';
 import { Scores } from '../types/scores';
-import {
-  calculateBonus,
-  calculateTotal,
-  calculateUpperTotal,
-  createInitialScores,
-} from '../utils/score';
+import { createInitialScores } from '../utils/score';
 import Score from './Score';
 
 export default function ScoreCard(props: ScoreCardProps) {
   const [scores, setScores] = useState<Scores>(createInitialScores());
 
   const calculateScore = new CalculateScore(props.diceValues);
+  const calculateTotalScore = new CalculateTotalScore(scores);
+
   const upperScoreNamesArray = [
     { name: 'ace', displayedName: '에이스', cyName: 'ace' },
     { name: 'dual', displayedName: '듀얼', cyName: 'dual' },
@@ -59,14 +57,16 @@ export default function ScoreCard(props: ScoreCardProps) {
         <tr className="total-score">
           <td>상단 점수의 합이 63점 이상이라면</td>
           <td className="score-value-col">
-            <span data-cy="upper-total">{calculateUpperTotal(scores)}</span>
+            <span data-cy="upper-total">
+              {calculateTotalScore.upperTotal()}
+            </span>
             /63
           </td>
         </tr>
         <tr className="total-score">
           <td>상단 보너스 +35점</td>
           <td>
-            <span data-cy="bonus">{calculateBonus(scores)}</span>
+            <span data-cy="bonus">{calculateTotalScore.bonus()}</span>
           </td>
         </tr>
         {lowerScoreNamesArray.map((scoreNames) => {
@@ -87,7 +87,7 @@ export default function ScoreCard(props: ScoreCardProps) {
         <tr className="total-score">
           <td>총점</td>
           <td>
-            <span data-cy="total">{calculateTotal(scores)}</span>
+            <span data-cy="total">{calculateTotalScore.total()}</span>
           </td>
         </tr>
       </tbody>
