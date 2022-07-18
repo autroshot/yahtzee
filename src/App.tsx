@@ -44,15 +44,6 @@ export default function App() {
         diceValues={dices ? dices.map((dice) => dice.value) : null}
         goNextRound={goNextRound}
       />
-      {round > 12 ? (
-        <Row>
-          <Col>
-            <Button variant="secondary" className="restart">
-              게임 재시작하기
-            </Button>
-          </Col>
-        </Row>
-      ) : null}
     </Container>
   );
 

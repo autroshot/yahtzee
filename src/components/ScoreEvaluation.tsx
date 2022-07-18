@@ -1,4 +1,4 @@
-import { Col, Row, Table } from 'react-bootstrap';
+import { Button, Col, Row, Table } from 'react-bootstrap';
 import { ScoreEvaluationProps } from '../types/props';
 
 export default function ScoreEvaluation(props: ScoreEvaluationProps) {
@@ -65,6 +65,13 @@ export default function ScoreEvaluation(props: ScoreEvaluationProps) {
               })}
             </tbody>
           </Table>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Button variant="secondary" className="restart">
+            게임 재시작하기
+          </Button>
         </Col>
       </Row>
     </>
