@@ -35,3 +35,7 @@ interface names {
   displayedName: string;
   cyName: string;
 }
+
+export interface ScoreEvaluationProps {
+  total: number;
+}

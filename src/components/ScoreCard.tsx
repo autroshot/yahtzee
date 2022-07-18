@@ -5,6 +5,7 @@ import CalculateTotalScore from '../classes/CalculateTotalScore';
 import { ScoreCardProps } from '../types/props';
 import { Scores } from '../types/scores';
 import Score from './Score';
+import ScoreEvaluation from './ScoreEvaluation';
 
 export default function ScoreCard(props: ScoreCardProps) {
   const [scores, setScores] = useState<Scores>({
@@ -190,7 +191,9 @@ export default function ScoreCard(props: ScoreCardProps) {
           </Table>
         </Col>
       </Row>
-      {renderScoreEvaluation}
+      {Object.values(scores).includes(null) ? null : (
+        <ScoreEvaluation total={calculateTotalScore.total()} />
+      )}
     </>
   );
 
