@@ -2,7 +2,7 @@ import { Col, Row, Table } from 'react-bootstrap';
 import { ScoreEvaluationProps } from '../types/props';
 
 export default function ScoreEvaluation(props: ScoreEvaluationProps) {
-  const contents = [
+  const CONTENTS = [
     {
       scoreRange: { min: 300, max: 325 },
       evaluation: '주사위 신!',
@@ -46,7 +46,7 @@ export default function ScoreEvaluation(props: ScoreEvaluationProps) {
               </tr>
             </thead>
             <tbody>
-              {contents.map((content) => {
+              {CONTENTS.map((content) => {
                 return (
                   <tr
                     className={
