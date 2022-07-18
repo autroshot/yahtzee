@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import Info from './components/Info';
 import ScoreCard from './components/ScoreCard';
 import DiceRolling from './components/DiceRolling';
@@ -89,5 +89,9 @@ export default function App() {
     setRound((prevRound) => prevRound + 1);
     setRollCount(0);
     setDices(null);
+  }
+
+  function goFirstRound() {
+    setRound(1);
   }
 }
