@@ -91,7 +91,7 @@ export default function ScoreCard(props: ScoreCardProps) {
         </Row>
         <Row>
           <Col sm="auto">
-            <Table bordered>
+            <Table bordered data-cy="score-evaluation">
               <thead>
                 <tr>
                   <th>점수</th>
@@ -133,7 +133,7 @@ export default function ScoreCard(props: ScoreCardProps) {
       </Row>
       <Row>
         <Col sm="auto">
-          <Table bordered>
+          <Table bordered data-cy="scores">
             <tbody>
               {upperScoreNamesArray.map((scoreNames, index) => {
                 const scoreValue = calculateScore.upper(index + 1);

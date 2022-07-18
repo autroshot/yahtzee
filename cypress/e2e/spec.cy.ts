@@ -284,6 +284,86 @@ describe('점수 결정하기', () => {
   });
 });
 
+describe('점수 평가', () => {
+  beforeEach(() => {
+    cy.visit('/');
+  });
+
+  it('게임 종료 이전에는 점수 평가표 미표시', () => {
+    cy.root().should('not.have.text', '점수 평가표');
+
+    cy.contains('주사위 굴리기').click();
+    cy.contains('에이스').click();
+    cy.get('[data-cy=score-evaluation]').should('not.exist');
+  });
+
+  it('게임 종료 이후 점수 평가표 표시 및 평가', () => {
+    cy.contains('주사위 굴리기').click();
+    cy.contains('에이스').click();
+    cy.contains('주사위 굴리기').click();
+    cy.contains('듀얼').click();
+    cy.contains('주사위 굴리기').click();
+    cy.contains('트리플').click();
+    cy.contains('주사위 굴리기').click();
+    cy.contains('쿼드').click();
+    cy.contains('주사위 굴리기').click();
+    cy.contains('펜타').click();
+    cy.contains('주사위 굴리기').click();
+    cy.contains('헥사').click();
+    cy.contains('주사위 굴리기').click();
+    cy.contains('초이스').click();
+    cy.contains('주사위 굴리기').click();
+    cy.contains('포커').click();
+    cy.contains('주사위 굴리기').click();
+    cy.contains('풀 하우스').click();
+    cy.contains('주사위 굴리기').click();
+    cy.contains('스몰 스트레이트').click();
+    cy.contains('주사위 굴리기').click();
+    cy.contains('라지 스트레이트').click();
+    cy.contains('주사위 굴리기').click();
+    cy.get('[data-cy=scores]').contains('요트').click();
+
+    cy.get('[data-cy=score-evaluation]').should('exist');
+    cy.get('[data-cy=total]')
+      .invoke('text')
+      .then(($total) => {
+        const total = parseInt($total);
+
+        if (total >= 300) {
+          cy.get('[data-cy=score-evaluation] tbody tr:nth-child(1)').should(
+            'have.class',
+            'score-evaluation-result'
+          );
+        } else if (total >= 200) {
+          cy.get('[data-cy=score-evaluation] tbody tr:nth-child(2)').should(
+            'have.class',
+            'score-evaluation-result'
+          );
+        } else if (total >= 150) {
+          cy.get('[data-cy=score-evaluation] tbody tr:nth-child(3)').should(
+            'have.class',
+            'score-evaluation-result'
+          );
+        } else if (total >= 100) {
+          cy.get('[data-cy=score-evaluation] tbody tr:nth-child(4)').should(
+            'have.class',
+            'score-evaluation-result'
+          );
+        } else if (total >= 10) {
+          cy.get('[data-cy=score-evaluation] tbody tr:nth-child(5)').should(
+            'have.class',
+            'score-evaluation-result'
+          );
+        } else if (total >= 0) {
+          cy.get('[data-cy=score-evaluation] tbody tr:nth-child(6)').should(
+            'have.class',
+            'score-evaluation-result'
+          );
+        }
+      });
+  });
+});
+
 function getDiceValues(dices: JQuery<HTMLElement>): number[] {
   let result: number[] = [];
 
