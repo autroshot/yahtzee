@@ -26,7 +26,7 @@ export default function ScoreCard(props: ScoreCardProps) {
   const calculateScore = new CalculateScore(props.diceValues);
   const calculateTotalScore = new CalculateTotalScore(scores);
 
-  const upperScoreNamesArray = [
+  const UPPER_SCORE_NAMES_ARRAY = [
     { name: 'ace', displayedName: '에이스', cyName: 'ace' },
     { name: 'dual', displayedName: '듀얼', cyName: 'dual' },
     { name: 'triple', displayedName: '트리플', cyName: 'triple' },
@@ -34,7 +34,7 @@ export default function ScoreCard(props: ScoreCardProps) {
     { name: 'penta', displayedName: '펜타', cyName: 'penta' },
     { name: 'hexa', displayedName: '헥사', cyName: 'hexa' },
   ];
-  const lowerScoreNamesArray = [
+  const LOWER_SCORE_NAMES_ARRAY = [
     { name: 'choice', displayedName: '초이스', cyName: 'choice' },
     { name: 'poker', displayedName: '포커', cyName: 'poker' },
     { name: 'fullHouse', displayedName: '풀 하우스', cyName: 'full-house' },
@@ -62,7 +62,7 @@ export default function ScoreCard(props: ScoreCardProps) {
         <Col sm="auto">
           <Table bordered data-cy="scores">
             <tbody>
-              {upperScoreNamesArray.map((scoreNames, index) => {
+              {UPPER_SCORE_NAMES_ARRAY.map((scoreNames, index) => {
                 const scoreValue = calculateScore.upper(index + 1);
                 return (
                   <Score
@@ -91,7 +91,7 @@ export default function ScoreCard(props: ScoreCardProps) {
                   <span data-cy="bonus">{calculateTotalScore.bonus()}</span>
                 </td>
               </tr>
-              {lowerScoreNamesArray.map((scoreNames) => {
+              {LOWER_SCORE_NAMES_ARRAY.map((scoreNames) => {
                 const scoreValue = (
                   calculateScore[scoreNames.name] as () => number | null
                 )();
