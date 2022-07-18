@@ -24,13 +24,13 @@ export interface ScoreCardProps {
 }
 
 export interface ScoreProps {
-  names: names;
+  names: Names;
   scoreValue: number | null;
   isDecided: boolean;
   onScoreClick: () => void;
 }
 
-interface names {
+interface Names {
   name: string;
   displayedName: string;
   cyName: string;
