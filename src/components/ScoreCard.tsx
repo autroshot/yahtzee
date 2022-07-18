@@ -50,6 +50,59 @@ export default function ScoreCard(props: ScoreCardProps) {
     { name: 'yacht', displayedName: '요트', cyName: 'yacht' },
   ];
 
+  let renderScoreEvaluation: null | JSX.Element;
+  if (Object.values(scores).includes(null)) {
+    renderScoreEvaluation = null;
+  } else {
+    renderScoreEvaluation = (
+      <>
+        <Row>
+          <Col>
+            <h3>점수 평가표</h3>
+          </Col>
+        </Row>
+        <Row>
+          <Col sm="auto">
+            <Table bordered>
+              <thead>
+                <tr>
+                  <th>점수</th>
+                  <th>평가</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>300점 이상</td>
+                  <td>주사위 신!</td>
+                </tr>
+                <tr>
+                  <td>200~299점</td>
+                  <td>진짜 고수의 영역!</td>
+                </tr>
+                <tr>
+                  <td>150~199점</td>
+                  <td>조금 굴릴 줄 아시는데요?</td>
+                </tr>
+                <tr>
+                  <td>100~149점</td>
+                  <td>보통이시네요.</td>
+                </tr>
+                <tr>
+                  <td>10~99점</td>
+                  <td>연습이 더 필요합니다.</td>
+                </tr>
+                <tr>
+                  <td>0~9점</td>
+                  <td>또 다른 신의 영역!</td>
+                </tr>
+              </tbody>
+            </Table>
+          </Col>
+        </Row>
+      </>
+    );
+  }
+
   return (
     <>
       <Row>
@@ -116,6 +169,7 @@ export default function ScoreCard(props: ScoreCardProps) {
           </Table>
         </Col>
       </Row>
+      {renderScoreEvaluation}
     </>
   );
 
