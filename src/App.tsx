@@ -66,10 +66,10 @@ export default function App() {
 
     const selectDices = new SelectDices(dices);
     switch (direction) {
-      case 'up':
+      case 'toRolled':
         setDices(selectDices.changeKeptOfSelectedDices(false));
         break;
-      case 'down':
+      case 'toKept':
         setDices(selectDices.changeKeptOfSelectedDices(true));
         break;
     }
