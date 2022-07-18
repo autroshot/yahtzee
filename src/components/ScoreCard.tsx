@@ -80,6 +80,7 @@ export default function ScoreCard(props: ScoreCardProps) {
         evaluation: '또 다른 신의 영역!',
       },
     ];
+    const totalScore = calculateTotalScore.total();
 
     renderScoreEvaluation = (
       <>
@@ -100,7 +101,14 @@ export default function ScoreCard(props: ScoreCardProps) {
               <tbody>
                 {contents.map((content) => {
                   return (
-                    <tr>
+                    <tr
+                      className={
+                        totalScore >= content.scoreRange.min &&
+                        totalScore <= content.scoreRange.max
+                          ? 'score-evaluation-result'
+                          : undefined
+                      }
+                    >
                       <td>
                         {content.scoreRange.min}~{content.scoreRange.max}점
                       </td>
