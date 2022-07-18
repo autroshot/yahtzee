@@ -17,7 +17,9 @@ export default function App() {
   const rollDices = new RollDices(dices);
 
   useEffect(() => {
-    if (round > 12) {
+    if (round === 1) {
+      window.scrollTo(0, 0);
+    } else if (round > 12) {
       window.scrollTo(0, 1e9);
     }
   });
