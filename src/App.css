@@ -64,3 +64,8 @@
   color: white;
   background-color: rgb(80, 80, 80);
 }
+
+.restart {
+  margin: 0.5rem;
+  margin-bottom: 1rem;
+}

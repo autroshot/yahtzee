@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import Info from './components/Info';
 import ScoreCard from './components/ScoreCard';
 import DiceRolling from './components/DiceRolling';
@@ -44,6 +44,15 @@ export default function App() {
         diceValues={dices ? dices.map((dice) => dice.value) : null}
         goNextRound={goNextRound}
       />
+      {round > 12 ? (
+        <Row>
+          <Col>
+            <Button variant="secondary" className="restart">
+              게임 재시작하기
+            </Button>
+          </Col>
+        </Row>
+      ) : null}
     </Container>
   );
 
