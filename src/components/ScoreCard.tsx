@@ -71,7 +71,7 @@ export default function ScoreCard(props: ScoreCardProps) {
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr className="score-evaluation-result">
                   <td>300점 이상</td>
                   <td>주사위 신!</td>
                 </tr>

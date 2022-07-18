@@ -59,3 +59,8 @@
 .score-value-col {
   width: 3.9rem;
 }
+
+.score-evaluation-result {
+  color: white;
+  background-color: rgb(80, 80, 80);
+}
