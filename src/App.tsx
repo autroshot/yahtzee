@@ -43,6 +43,7 @@ export default function App() {
       <ScoreCard
         diceValues={dices ? dices.map((dice) => dice.value) : null}
         goNextRound={goNextRound}
+        goFirstRound={goFirstRound}
       />
     </Container>
   );

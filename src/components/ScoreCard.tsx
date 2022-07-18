@@ -8,20 +8,7 @@ import Score from './Score';
 import ScoreEvaluation from './ScoreEvaluation';
 
 export default function ScoreCard(props: ScoreCardProps) {
-  const [scores, setScores] = useState<Scores>({
-    ace: null,
-    dual: null,
-    triple: null,
-    quad: null,
-    penta: null,
-    hexa: null,
-    choice: null,
-    poker: null,
-    fullHouse: null,
-    smallStraight: null,
-    largeStraight: null,
-    yacht: null,
-  });
+  const [scores, setScores] = useState<Scores>(createInitialScores());
 
   const calculateScore = new CalculateScore(props.diceValues);
   const calculateTotalScore = new CalculateTotalScore(scores);
@@ -133,5 +120,24 @@ export default function ScoreCard(props: ScoreCardProps) {
 
     setScores(scoresCopy);
     props.goNextRound();
+  }
+
+  function handleRestartClick() {}
+
+  function createInitialScores() {
+    return {
+      ace: null,
+      dual: null,
+      triple: null,
+      quad: null,
+      penta: null,
+      hexa: null,
+      choice: null,
+      poker: null,
+      fullHouse: null,
+      smallStraight: null,
+      largeStraight: null,
+      yacht: null,
+    };
   }
 }
