@@ -30,19 +30,10 @@ export default function App() {
         onDiceClick={handleDiceClick}
         onMoveDicesClick={handleMoveDicesClick}
       />
-      <Row>
-        <Col>
-          <h3>점수표</h3>
-        </Col>
-      </Row>
-      <Row>
-        <Col sm="auto">
-          <ScoreCard
-            diceValues={dices ? dices.map((dice) => dice.value) : null}
-            goNextRound={goNextRound}
-          />
-        </Col>
-      </Row>
+      <ScoreCard
+        diceValues={dices ? dices.map((dice) => dice.value) : null}
+        goNextRound={goNextRound}
+      />
     </Container>
   );
 

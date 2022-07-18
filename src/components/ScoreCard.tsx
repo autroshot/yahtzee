@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Table } from 'react-bootstrap';
+import { Col, Row, Table } from 'react-bootstrap';
 import CalculateScore from '../classes/CalculateScore';
 import CalculateTotalScore from '../classes/CalculateTotalScore';
 import { ScoreCardProps } from '../types/props';
@@ -51,59 +51,72 @@ export default function ScoreCard(props: ScoreCardProps) {
   ];
 
   return (
-    <Table bordered>
-      <tbody>
-        {upperScoreNamesArray.map((scoreNames, index) => {
-          const scoreValue = calculateScore.upper(index + 1);
-
-          return (
-            <Score
-              key={scoreNames.name}
-              names={scoreNames}
-              scoreValue={scores[scoreNames.name] ?? scoreValue}
-              isDecided={scores[scoreNames.name] !== null ? true : false}
-              onScoreClick={() => handleScoreClick(scoreNames.name, scoreValue)}
-            />
-          );
-        })}
-        <tr className="total-score">
-          <td>상단 점수의 합이 63점 이상이라면</td>
-          <td className="score-value-col">
-            <span data-cy="upper-total">
-              {calculateTotalScore.upperTotal()}
-            </span>
-            /63
-          </td>
-        </tr>
-        <tr className="total-score">
-          <td>상단 보너스 +35점</td>
-          <td>
-            <span data-cy="bonus">{calculateTotalScore.bonus()}</span>
-          </td>
-        </tr>
-        {lowerScoreNamesArray.map((scoreNames) => {
-          const scoreValue = (
-            calculateScore[scoreNames.name] as () => number | null
-          )();
-
-          return (
-            <Score
-              key={scoreNames.name}
-              names={scoreNames}
-              scoreValue={scores[scoreNames.name] ?? scoreValue}
-              isDecided={scores[scoreNames.name] !== null ? true : false}
-              onScoreClick={() => handleScoreClick(scoreNames.name, scoreValue)}
-            />
-          );
-        })}
-        <tr className="total-score">
-          <td>총점</td>
-          <td>
-            <span data-cy="total">{calculateTotalScore.total()}</span>
-          </td>
-        </tr>
-      </tbody>
-    </Table>
+    <>
+      <Row>
+        <Col>
+          <h3>점수표</h3>
+        </Col>
+      </Row>
+      <Row>
+        <Col sm="auto">
+          <Table bordered>
+            <tbody>
+              {upperScoreNamesArray.map((scoreNames, index) => {
+                const scoreValue = calculateScore.upper(index + 1);
+                return (
+                  <Score
+                    key={scoreNames.name}
+                    names={scoreNames}
+                    scoreValue={scores[scoreNames.name] ?? scoreValue}
+                    isDecided={scores[scoreNames.name] !== null ? true : false}
+                    onScoreClick={() =>
+                      handleScoreClick(scoreNames.name, scoreValue)
+                    }
+                  />
+                );
+              })}
+              <tr className="total-score">
+                <td>상단 점수의 합이 63점 이상이라면</td>
+                <td className="score-value-col">
+                  <span data-cy="upper-total">
+                    {calculateTotalScore.upperTotal()}
+                  </span>
+                  /63
+                </td>
+              </tr>
+              <tr className="total-score">
+                <td>상단 보너스 +35점</td>
+                <td>
+                  <span data-cy="bonus">{calculateTotalScore.bonus()}</span>
+                </td>
+              </tr>
+              {lowerScoreNamesArray.map((scoreNames) => {
+                const scoreValue = (
+                  calculateScore[scoreNames.name] as () => number | null
+                )();
+                return (
+                  <Score
+                    key={scoreNames.name}
+                    names={scoreNames}
+                    scoreValue={scores[scoreNames.name] ?? scoreValue}
+                    isDecided={scores[scoreNames.name] !== null ? true : false}
+                    onScoreClick={() =>
+                      handleScoreClick(scoreNames.name, scoreValue)
+                    }
+                  />
+                );
+              })}
+              <tr className="total-score">
+                <td>총점</td>
+                <td>
+                  <span data-cy="total">{calculateTotalScore.total()}</span>
+                </td>
+              </tr>
+            </tbody>
+          </Table>
+        </Col>
+      </Row>
+    </>
   );
 
   function handleScoreClick(scoreName: string, scoreValue: number | null) {
