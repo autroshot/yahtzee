@@ -39,4 +39,5 @@ interface Names {
 
 export interface ScoreEvaluationProps {
   total: number;
+  onRestartClick: () => void;
 }

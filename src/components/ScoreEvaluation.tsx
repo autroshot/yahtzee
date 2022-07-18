@@ -69,7 +69,11 @@ export default function ScoreEvaluation(props: ScoreEvaluationProps) {
       </Row>
       <Row>
         <Col>
-          <Button variant="secondary" className="restart">
+          <Button
+            variant="secondary"
+            className="restart"
+            onClick={props.onRestartClick}
+          >
             게임 재시작하기
           </Button>
         </Col>

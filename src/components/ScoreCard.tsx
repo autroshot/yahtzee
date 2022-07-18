@@ -105,7 +105,10 @@ export default function ScoreCard(props: ScoreCardProps) {
         </Col>
       </Row>
       {Object.values(scores).includes(null) ? null : (
-        <ScoreEvaluation total={calculateTotalScore.total()} />
+        <ScoreEvaluation
+          total={calculateTotalScore.total()}
+          onRestartClick={handleRestartClick}
+        />
       )}
     </>
   );
@@ -122,7 +125,9 @@ export default function ScoreCard(props: ScoreCardProps) {
     props.goNextRound();
   }
 
-  function handleRestartClick() {}
+  function handleRestartClick() {
+    console.log('clicked');
+  }
 
   function createInitialScores() {
     return {
