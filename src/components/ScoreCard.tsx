@@ -54,6 +54,33 @@ export default function ScoreCard(props: ScoreCardProps) {
   if (Object.values(scores).includes(null)) {
     renderScoreEvaluation = null;
   } else {
+    const contents = [
+      {
+        scoreRange: { min: 300, max: 325 },
+        evaluation: '주사위 신!',
+      },
+      {
+        scoreRange: { min: 200, max: 299 },
+        evaluation: '진짜 고수의 영역!',
+      },
+      {
+        scoreRange: { min: 150, max: 199 },
+        evaluation: '조금 굴릴 줄 아시는데요?',
+      },
+      {
+        scoreRange: { min: 100, max: 149 },
+        evaluation: '보통이시네요.',
+      },
+      {
+        scoreRange: { min: 10, max: 99 },
+        evaluation: '연습이 더 필요합니다.',
+      },
+      {
+        scoreRange: { min: 0, max: 9 },
+        evaluation: '또 다른 신의 영역!',
+      },
+    ];
+
     renderScoreEvaluation = (
       <>
         <Row>
@@ -71,30 +98,16 @@ export default function ScoreCard(props: ScoreCardProps) {
                 </tr>
               </thead>
               <tbody>
-                <tr className="score-evaluation-result">
-                  <td>300점 이상</td>
-                  <td>주사위 신!</td>
-                </tr>
-                <tr>
-                  <td>200~299점</td>
-                  <td>진짜 고수의 영역!</td>
-                </tr>
-                <tr>
-                  <td>150~199점</td>
-                  <td>조금 굴릴 줄 아시는데요?</td>
-                </tr>
-                <tr>
-                  <td>100~149점</td>
-                  <td>보통이시네요.</td>
-                </tr>
-                <tr>
-                  <td>10~99점</td>
-                  <td>연습이 더 필요합니다.</td>
-                </tr>
-                <tr>
-                  <td>0~9점</td>
-                  <td>또 다른 신의 영역!</td>
-                </tr>
+                {contents.map((content) => {
+                  return (
+                    <tr>
+                      <td>
+                        {content.scoreRange.min}~{content.scoreRange.max}점
+                      </td>
+                      <td>{content.evaluation}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </Table>
           </Col>
