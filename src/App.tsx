@@ -23,13 +23,17 @@ export default function App() {
           <h1>요트 다이스</h1>
         </Col>
       </Row>
-      <Info round={round} rollCount={rollCount} />
-      <DiceRolling
-        dices={dices}
-        onRollDicesClick={handleRollDicesClick}
-        onDiceClick={handleDiceClick}
-        onMoveDicesClick={handleMoveDicesClick}
-      />
+      {round > 12 ? null : (
+        <>
+          <Info round={round} rollCount={rollCount} />
+          <DiceRolling
+            dices={dices}
+            onRollDicesClick={handleRollDicesClick}
+            onDiceClick={handleDiceClick}
+            onMoveDicesClick={handleMoveDicesClick}
+          />
+        </>
+      )}
       <ScoreCard
         diceValues={dices ? dices.map((dice) => dice.value) : null}
         goNextRound={goNextRound}
