@@ -126,7 +126,8 @@ export default function ScoreCard(props: ScoreCardProps) {
   }
 
   function handleRestartClick() {
-    console.log('clicked');
+    setScores(createInitialScores());
+    props.goFirstRound();
   }
 
   function createInitialScores() {
