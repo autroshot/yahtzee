@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Info from './components/Info';
 import ScoreCard from './components/ScoreCard';
 import DiceRolling from './components/DiceRolling';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Dice } from './types/dice';
 import RollDices from './classes/RollDices';
 import SelectDices from './classes/SelectDices';
@@ -15,6 +15,12 @@ export default function App() {
   const [dices, setDices] = useState<Dice[] | null>(null);
 
   const rollDices = new RollDices(dices);
+
+  useEffect(() => {
+    if (round > 12) {
+      window.scrollTo(0, 1e9);
+    }
+  });
 
   return (
     <Container className="app">
