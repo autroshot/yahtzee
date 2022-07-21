@@ -42,7 +42,9 @@ export default function Info(props: InfoProps) {
       </Row>
       <Row>
         <Col>
-          <span data-cy="instruction">{instruction}</span>
+          <p data-cy="instruction" className="instruction">
+            {instruction}
+          </p>
         </Col>
       </Row>
     </>
