@@ -31,17 +31,6 @@ export default function App() {
           <h1>요트 다이스</h1>
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <a
-            href="https://youtu.be/yXno1hggmbw"
-            target="_blank"
-            rel="noreferrer"
-          >
-            게임 룰 영상
-          </a>
-        </Col>
-      </Row>
       {round > 12 ? null : (
         <>
           <Info round={round} rollCount={rollCount} />
