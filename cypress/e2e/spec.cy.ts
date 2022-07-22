@@ -60,11 +60,11 @@ describe('주사위 굴리기', () => {
   });
 
   it('제한 횟수 초과 주사위 굴리기', () => {
-    for (let i = 0; i < 4; i++) {
+    for (let i = 1; i < 4; i++) {
       cy.contains('주사위 굴리기').click();
     }
 
-    cy.contains('주사위 굴리기').click();
+    cy.contains('주사위 굴리기').should('have.attr', 'disabled');
 
     cy.get('[data-cy="roll-count"]').should('contain', '3');
     cy.get('[data-cy="instruction"]').should('contain', '점수를 선택하세요.');
