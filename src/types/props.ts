@@ -2,6 +2,7 @@ import { Dice } from './dice';
 
 export interface DiceRollingProps {
   dices: Dice[] | null;
+  rollCount: number;
   onRollDicesClick: () => void;
   onDiceClick: (key: number) => void;
   onMoveDicesClick: (direction: string) => void;

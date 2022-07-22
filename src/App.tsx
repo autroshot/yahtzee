@@ -36,6 +36,7 @@ export default function App() {
           <Info round={round} rollCount={rollCount} />
           <DiceRolling
             dices={dices}
+            rollCount={rollCount}
             onRollDicesClick={handleRollDicesClick}
             onDiceClick={handleDiceClick}
             onMoveDicesClick={handleMoveDicesClick}
