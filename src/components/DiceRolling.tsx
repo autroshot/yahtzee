@@ -5,9 +5,6 @@ import Dice from './Dice';
 export default function DiceRolling(props: DiceRollingProps) {
   const rolledDices = props.dices?.filter((dice) => !dice.kept);
   const keptDices = props.dices?.filter((dice) => dice.kept);
-  const isSelectedDiceExist = Boolean(
-    props.dices?.find((dice) => dice.selected)
-  );
 
   return (
     <>
@@ -47,7 +44,7 @@ export default function DiceRolling(props: DiceRollingProps) {
           <Button
             variant="secondary"
             className="action"
-            disabled={!isSelectedDiceExist}
+            disabled={!Boolean(rolledDices?.find((dice) => dice.selected))}
             onClick={() => props.onMoveDicesClick('toKept')}
           >
             선택한 주사위 보관하기
@@ -55,7 +52,7 @@ export default function DiceRolling(props: DiceRollingProps) {
           <Button
             variant="secondary"
             className="action"
-            disabled={!isSelectedDiceExist}
+            disabled={!Boolean(keptDices?.find((dice) => dice.selected))}
             onClick={() => props.onMoveDicesClick('toRolled')}
           >
             선택한 주사위 되돌리기
