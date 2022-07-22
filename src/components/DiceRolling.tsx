@@ -13,6 +13,7 @@ export default function DiceRolling(props: DiceRollingProps) {
           <Button
             variant="secondary"
             className="action"
+            disabled={props.rollCount === 3 ? true : false}
             onClick={props.onRollDicesClick}
           >
             주사위 굴리기
