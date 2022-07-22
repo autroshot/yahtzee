@@ -49,6 +49,7 @@ export default function ScoreEvaluation(props: ScoreEvaluationProps) {
               {CONTENTS.map((content) => {
                 return (
                   <tr
+                    key={content.evaluation}
                     className={
                       props.total >= content.scoreRange.min &&
                       props.total <= content.scoreRange.max
