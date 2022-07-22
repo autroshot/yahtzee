@@ -6,6 +6,10 @@
 
 게임 룰 영상: https://youtu.be/yXno1hggmbw
 
+## 사이트
+
+https://yahtzee-autroshot.vercel.app/
+
 ## 기술 스택
 
 - React
@@ -13,6 +17,7 @@
 - TypeScript
 - Jest
 - Cypress
+- Vercel
 
 ## 구현 기능
 
