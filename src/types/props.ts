@@ -14,6 +14,10 @@ export interface DiceProps {
   onDiceClick: () => void;
 }
 
+export interface DiceImageProps {
+  value: number;
+}
+
 export interface InfoProps {
   round: number;
   rollCount: number;

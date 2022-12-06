@@ -1,4 +1,5 @@
 import { DiceProps } from '../types/props';
+import DiceImage from './DiceImage';
 
 export default function Dice(props: DiceProps) {
   return (
@@ -8,10 +9,7 @@ export default function Dice(props: DiceProps) {
       data-selected={props.selected ? '' : null}
       onClick={props.onDiceClick}
     >
-      <img
-        src={`images/dice-${props.value}.png`}
-        alt={`주사위 ${props.value}`}
-      />
+      <DiceImage value={props.value} />
     </button>
   );
 }
