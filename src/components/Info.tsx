@@ -20,18 +20,6 @@ export default function Info(props: InfoProps) {
     <>
       <Row>
         <Col>
-          <a
-            className="game-rule"
-            href="https://youtu.be/yXno1hggmbw"
-            target="_blank"
-            rel="noreferrer"
-          >
-            게임 룰 영상
-          </a>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
           라운드: <span data-cy="round">{props.round}</span>/12
         </Col>
       </Row>
