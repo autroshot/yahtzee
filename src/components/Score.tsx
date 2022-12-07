@@ -4,7 +4,9 @@ export default function Score(props: ScoreProps) {
   return (
     <tr
       className={props.isDecided ? 'decided-score' : 'not-decided-score'}
+      tabIndex={0}
       onClick={props.onScoreClick}
+      onKeyDown={triggerClickWhenEnterOrSpacebarKeyDown}
     >
       <td>{props.names.displayedName}</td>
       <td>
@@ -12,4 +14,12 @@ export default function Score(props: ScoreProps) {
       </td>
     </tr>
   );
+
+  function triggerClickWhenEnterOrSpacebarKeyDown(
+    e: React.KeyboardEvent<HTMLElement>
+  ) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.currentTarget.click();
+    }
+  }
 }
