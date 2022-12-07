@@ -4,11 +4,7 @@
 
 요트 다이스는 주사위를 굴리고 족보를 만들어서 높은 점수를 노리는 게임입니다.
 
-게임 룰 영상: https://youtu.be/yXno1hggmbw
-
-## 사이트
-
-https://yahtzee-autroshot.vercel.app/
+게임 룰은 [유튜브](https://youtu.be/yXno1hggmbw)에서 확인할 수 있습니다.
 
 ## 기술 스택
 
