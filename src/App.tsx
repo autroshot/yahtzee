@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { Dice } from './types/dice';
 import RollDices from './classes/RollDices';
 import SelectDices from './classes/SelectDices';
+import Footer from './components/Footer';
 
 export default function App() {
   const [round, setRound] = useState(1);
@@ -50,6 +51,7 @@ export default function App() {
           goFirstRound={goFirstRound}
         />
       </main>
+      <Footer />
     </Container>
   );
 
