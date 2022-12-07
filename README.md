@@ -8,11 +8,23 @@
 
 ## 기술 스택
 
+### 언어
+
+- JavaScript
+- Typescript
+
+### 프런트엔드
+
 - React
 - React Bootstrap
-- TypeScript
+
+### 테스트 도구
+
 - Jest
 - Cypress
+
+### 배포
+
 - Vercel
 
 ## 구현 기능
