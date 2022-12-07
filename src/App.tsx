@@ -26,28 +26,30 @@ export default function App() {
 
   return (
     <Container className="app">
-      <Row>
-        <Col>
-          <h1>요트 다이스</h1>
-        </Col>
-      </Row>
-      {round > 12 ? null : (
-        <>
-          <Info round={round} rollCount={rollCount} />
-          <DiceRolling
-            dices={dices}
-            rollCount={rollCount}
-            onRollDicesClick={handleRollDicesClick}
-            onDiceClick={handleDiceClick}
-            onMoveDicesClick={handleMoveDicesClick}
-          />
-        </>
-      )}
-      <ScoreCard
-        diceValues={dices ? dices.map((dice) => dice.value) : null}
-        goNextRound={goNextRound}
-        goFirstRound={goFirstRound}
-      />
+      <main>
+        <Row>
+          <Col>
+            <h1>요트 다이스</h1>
+          </Col>
+        </Row>
+        {round > 12 ? null : (
+          <>
+            <Info round={round} rollCount={rollCount} />
+            <DiceRolling
+              dices={dices}
+              rollCount={rollCount}
+              onRollDicesClick={handleRollDicesClick}
+              onDiceClick={handleDiceClick}
+              onMoveDicesClick={handleMoveDicesClick}
+            />
+          </>
+        )}
+        <ScoreCard
+          diceValues={dices ? dices.map((dice) => dice.value) : null}
+          goNextRound={goNextRound}
+          goFirstRound={goFirstRound}
+        />
+      </main>
     </Container>
   );
 
