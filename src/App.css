@@ -73,7 +73,11 @@
   margin-bottom: 0.5rem;
 }
 
-.instruction {
+.instruction-box {
   padding: 0.5rem;
-  margin-bottom: 0;
+  margin: 0 0.5rem;
+}
+
+.instruction-text {
+  border-bottom: 0.1rem solid;
 }
