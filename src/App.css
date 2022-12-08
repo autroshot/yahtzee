@@ -8,6 +8,10 @@
   font-family: 'NanumGothicBold';
 }
 
+h2 {
+  font-size: 1.75rem !important;
+}
+
 .total-score {
   color: white;
   background-color: rgb(80, 80, 80);

@@ -33,7 +33,7 @@ export default function ScoreEvaluation(props: ScoreEvaluationProps) {
     <>
       <Row>
         <Col>
-          <h3>점수 평가표</h3>
+          <h2>점수 평가표</h2>
         </Col>
       </Row>
       <Row>

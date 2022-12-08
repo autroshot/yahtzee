@@ -42,7 +42,7 @@ export default function ScoreCard(props: ScoreCardProps) {
     <>
       <Row>
         <Col>
-          <h3>점수표</h3>
+          <h2>점수표</h2>
         </Col>
       </Row>
       <Row>
