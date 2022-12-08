@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'NanumGothicBold';
   src: url('./fonts/NanumGothicBold.woff');
+  font-display: swap;
 }
 
 .app {
