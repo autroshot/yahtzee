@@ -11,7 +11,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            게임 룰 영상
+            게임 규칙
           </a>
         </Col>
       </Row>
