@@ -1,12 +1,5 @@
-@font-face {
-  font-family: 'NanumGothicBold';
-  src: url(https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumGothicBold.woff2);
-  font-display: swap;
-}
-
 .app {
-  font-family: 'NanumGothicBold';
-  font-weight: bold;
+  font-family: 'Nanum Gothic', serif;
 }
 
 h2 {
