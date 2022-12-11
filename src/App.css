@@ -35,23 +35,18 @@ h2 {
   height: 4.5rem;
 }
 
-.not-decided-score:hover {
-  background-color: gray;
-  color: white;
-  cursor: pointer;
-}
-
-.not-decided-score td:last-child {
-  color: rgba(0, 0, 0, 0.2);
-}
-
-.not-decided-score:hover td:last-child {
-  color: white;
+.score-table td {
+  vertical-align: middle;
+  height: 3rem;
 }
 
 .decided-score {
   background-color: gray;
   color: white;
+}
+
+.select-button-td {
+  text-align: center;
 }
 
 .score-value-col {

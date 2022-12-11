@@ -47,7 +47,7 @@ export default function ScoreCard(props: ScoreCardProps) {
       </Row>
       <Row>
         <Col sm="auto">
-          <Table bordered data-cy="scores">
+          <Table bordered className="score-table" data-cy="scores">
             <tbody>
               {UPPER_SCORE_NAMES_ARRAY.map((scoreNames, index) => {
                 const scoreValue = calculateScore.upper(index + 1);
@@ -64,19 +64,23 @@ export default function ScoreCard(props: ScoreCardProps) {
                 );
               })}
               <tr className="total-score">
-                <td>상단 점수의 합이 63점 이상이라면</td>
+                <td>
+                  상단 점수의 합이<br></br> 63점 이상이라면
+                </td>
                 <td className="score-value-col">
                   <span data-cy="upper-total">
                     {calculateTotalScore.upperTotal()}
                   </span>
                   /63
                 </td>
+                <td></td>
               </tr>
               <tr className="total-score">
                 <td>상단 보너스 +35점</td>
                 <td>
                   <span data-cy="bonus">{calculateTotalScore.bonus()}</span>
                 </td>
+                <td></td>
               </tr>
               {LOWER_SCORE_NAMES_ARRAY.map((scoreNames) => {
                 const scoreValue = (
@@ -99,6 +103,7 @@ export default function ScoreCard(props: ScoreCardProps) {
                 <td>
                   <span data-cy="total">{calculateTotalScore.total()}</span>
                 </td>
+                <td></td>
               </tr>
             </tbody>
           </Table>
