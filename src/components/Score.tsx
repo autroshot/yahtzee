@@ -17,6 +17,7 @@ export default function Score(props: ScoreProps) {
             size="sm"
             disabled={props.scoreValue === null}
             onClick={props.onScoreClick}
+            data-cy={`select-${props.names.cyName}`}
           >
             선택하기
           </Button>

@@ -233,14 +233,13 @@ describe('점수 결정하기', () => {
     cy.visit('/');
   });
 
-  it('주사위 굴림 이전에 점수 결정 시 무반응', () => {
-    cy.contains('에이스').click();
-    cy.get('[data-cy="ace"]').should('not.have.text');
+  it('주사위 굴림 이전에는 버튼 비활성화됨', () => {
+    cy.get('[data-cy="select-ace"]').should('be.disabled');
   });
 
   it('점수 결정 시 다음 라운드로 가기', () => {
     cy.contains('주사위 굴리기').click();
-    cy.contains('에이스').click();
+    cy.get('[data-cy="select-ace"]').click();
 
     cy.get('[data-cy="round"]').should('have.text', '2');
     cy.get('[data-cy="roll-count"]').should('have.text', '0');
@@ -258,10 +257,13 @@ describe('점수 결정하기', () => {
         return sum;
       }, 0);
 
-      cy.contains('헥사').click();
+      cy.get('[data-cy="select-hexa"]').click();
 
-      cy.contains('헥사').parent().should('have.class', 'decided-score');
-      cy.contains('헥사').next().should('have.text', hexaScore);
+      cy.get('[data-cy="hexa"]').parent().should('not.have.text', '선택 완료');
+      cy.get('[data-cy="hexa"]')
+        .closest('tr')
+        .should('have.class', 'decided-score');
+      cy.get('[data-cy="hexa"]').should('have.text', hexaScore);
       cy.get('[data-cy="upper-total"').should('have.text', hexaScore);
       cy.contains('총점').next().should('have.text', hexaScore);
     });
@@ -274,10 +276,15 @@ describe('점수 결정하기', () => {
       const diceValues = getDiceValues(dices);
       const choiceScore = diceValues.reduce((sum, value) => sum + value, 0);
 
-      cy.contains('초이스').click();
+      cy.get('[data-cy="select-choice"]').click();
 
-      cy.contains('초이스').parent().should('have.class', 'decided-score');
-      cy.contains('초이스').next().should('have.text', choiceScore);
+      cy.get('[data-cy="choice"]')
+        .parent()
+        .should('not.have.text', '선택 완료');
+      cy.get('[data-cy="choice"]')
+        .closest('tr')
+        .should('have.class', 'decided-score');
+      cy.get('[data-cy="choice"]').should('have.text', choiceScore);
       cy.get('[data-cy="upper-total"').should('have.text', 0);
       cy.contains('총점').next().should('have.text', choiceScore);
     });
@@ -299,29 +306,29 @@ describe('점수 평가', () => {
 
   it('게임 종료 이후 점수 평가표 표시 및 평가', () => {
     cy.contains('주사위 굴리기').click();
-    cy.contains('에이스').click();
+    cy.get('[data-cy="select-ace"]').click();
     cy.contains('주사위 굴리기').click();
-    cy.contains('듀얼').click();
+    cy.get('[data-cy="select-dual"]').click();
     cy.contains('주사위 굴리기').click();
-    cy.contains('트리플').click();
+    cy.get('[data-cy="select-triple"]').click();
     cy.contains('주사위 굴리기').click();
-    cy.contains('쿼드').click();
+    cy.get('[data-cy="select-quad"]').click();
     cy.contains('주사위 굴리기').click();
-    cy.contains('펜타').click();
+    cy.get('[data-cy="select-penta"]').click();
     cy.contains('주사위 굴리기').click();
-    cy.contains('헥사').click();
+    cy.get('[data-cy="select-hexa"]').click();
     cy.contains('주사위 굴리기').click();
-    cy.contains('초이스').click();
+    cy.get('[data-cy="select-choice"]').click();
     cy.contains('주사위 굴리기').click();
-    cy.contains('포커').click();
+    cy.get('[data-cy="select-poker"]').click();
     cy.contains('주사위 굴리기').click();
-    cy.contains('풀 하우스').click();
+    cy.get('[data-cy="select-full-house"]').click();
     cy.contains('주사위 굴리기').click();
-    cy.contains('스몰 스트레이트').click();
+    cy.get('[data-cy="select-small-straight"]').click();
     cy.contains('주사위 굴리기').click();
-    cy.contains('라지 스트레이트').click();
+    cy.get('[data-cy="select-large-straight"]').click();
     cy.contains('주사위 굴리기').click();
-    cy.get('[data-cy=scores]').contains('요트').click();
+    cy.get('[data-cy="select-yacht"]').click();
 
     cy.get('[data-cy=score-evaluation]').should('exist');
     cy.get('[data-cy=total]')
