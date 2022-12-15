@@ -11,6 +11,22 @@ h2 {
   background-color: rgb(80, 80, 80);
 }
 
+.dices-container {
+  position: relative;
+  border: solid;
+  width: 24rem;
+  height: 6rem;
+}
+
+.dices-label {
+  position: absolute;
+  top: -1.2rem;
+  left: 0.5rem;
+  padding: 0.3rem;
+  background-color: white;
+  z-index: 1;
+}
+
 .dice {
   border: none;
   background-color: transparent;
@@ -29,10 +45,6 @@ h2 {
 [data-selected] {
   margin: 0.2rem;
   border: 0.2rem dashed gray;
-}
-
-.dices-container {
-  height: 4.5rem;
 }
 
 .score-table td {

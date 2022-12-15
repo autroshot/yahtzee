@@ -20,11 +20,11 @@ export default function DiceRolling(props: DiceRollingProps) {
           </Button>
         </Col>
       </Row>
-      <Row>
+      <Row className="my-3">
         <Col>
-          <div>
-            굴릴 주사위:
-            <div className="dices-container" data-cy="rolled-dices">
+          <div className="dices-container p-2">
+            <div className="dices-label">굴릴 주사위</div>
+            <div className="my-1" data-cy="rolled-dices">
               {rolledDices?.map((dice) => (
                 <Dice
                   key={dice.key}
@@ -57,11 +57,11 @@ export default function DiceRolling(props: DiceRollingProps) {
           </Button>
         </Col>
       </Row>
-      <Row>
+      <Row className="my-3">
         <Col>
-          <div>
-            보관된 주사위:
-            <div className="dices-container" data-cy="kept-dices">
+          <div className="dices-container p-2">
+            <div className="dices-label">보관된 주사위</div>
+            <div className="my-1" data-cy="kept-dices">
               {keptDices?.map((dice) => (
                 <Dice
                   key={dice.key}
