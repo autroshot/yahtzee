@@ -1,6 +1,6 @@
 import { Button, Col, Row } from 'react-bootstrap';
 import { DiceRollingProps } from '../types/props';
-import Dice from './Dice';
+import Dices from './Dices';
 
 export default function DiceRolling(props: DiceRollingProps) {
   const rolledDices = props.dices?.filter((dice) => !dice.kept);
@@ -22,19 +22,12 @@ export default function DiceRolling(props: DiceRollingProps) {
       </Row>
       <Row className="my-3">
         <Col>
-          <div className="dices-container p-2">
-            <div className="dices-label">굴릴 주사위</div>
-            <div className="my-1" data-cy="rolled-dices">
-              {rolledDices?.map((dice) => (
-                <Dice
-                  key={dice.key}
-                  value={dice.value}
-                  selected={dice.selected}
-                  onDiceClick={() => props.onDiceClick(dice.key)}
-                />
-              ))}
-            </div>
-          </div>
+          <Dices
+            label="굴릴 주사위"
+            dices={rolledDices}
+            onDiceClick={props.onDiceClick}
+            dataCy="rolled-dices"
+          />
         </Col>
       </Row>
       <Row>
@@ -59,19 +52,12 @@ export default function DiceRolling(props: DiceRollingProps) {
       </Row>
       <Row className="my-3">
         <Col>
-          <div className="dices-container p-2">
-            <div className="dices-label">보관된 주사위</div>
-            <div className="my-1" data-cy="kept-dices">
-              {keptDices?.map((dice) => (
-                <Dice
-                  key={dice.key}
-                  value={dice.value}
-                  selected={dice.selected}
-                  onDiceClick={() => props.onDiceClick(dice.key)}
-                />
-              ))}
-            </div>
-          </div>
+          <Dices
+            label="보관된 주사위"
+            dices={keptDices}
+            onDiceClick={props.onDiceClick}
+            dataCy="kept-dices"
+          />
         </Col>
       </Row>
     </>

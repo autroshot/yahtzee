@@ -46,3 +46,10 @@ export interface ScoreEvaluationProps {
   total: number;
   onRestartClick: () => void;
 }
+
+export interface DicesProps {
+  label: string;
+  dices: Dice[] | undefined;
+  onDiceClick: (key: number) => void;
+  dataCy: string;
+}
