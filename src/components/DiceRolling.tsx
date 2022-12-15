@@ -22,20 +22,18 @@ export default function DiceRolling(props: DiceRollingProps) {
       </Row>
       <Row>
         <Col>
-          <span>굴릴 주사위:</span>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <div className="dices-container" data-cy="rolled-dices">
-            {rolledDices?.map((dice) => (
-              <Dice
-                key={dice.key}
-                value={dice.value}
-                selected={dice.selected}
-                onDiceClick={() => props.onDiceClick(dice.key)}
-              />
-            ))}
+          <div>
+            굴릴 주사위:
+            <div className="dices-container" data-cy="rolled-dices">
+              {rolledDices?.map((dice) => (
+                <Dice
+                  key={dice.key}
+                  value={dice.value}
+                  selected={dice.selected}
+                  onDiceClick={() => props.onDiceClick(dice.key)}
+                />
+              ))}
+            </div>
           </div>
         </Col>
       </Row>
@@ -61,20 +59,18 @@ export default function DiceRolling(props: DiceRollingProps) {
       </Row>
       <Row>
         <Col>
-          <span>보관된 주사위:</span>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <div className="dices-container" data-cy="kept-dices">
-            {keptDices?.map((dice) => (
-              <Dice
-                key={dice.key}
-                value={dice.value}
-                selected={dice.selected}
-                onDiceClick={() => props.onDiceClick(dice.key)}
-              />
-            ))}
+          <div>
+            보관된 주사위:
+            <div className="dices-container" data-cy="kept-dices">
+              {keptDices?.map((dice) => (
+                <Dice
+                  key={dice.key}
+                  value={dice.value}
+                  selected={dice.selected}
+                  onDiceClick={() => props.onDiceClick(dice.key)}
+                />
+              ))}
+            </div>
           </div>
         </Col>
       </Row>
