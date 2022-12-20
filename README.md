@@ -9,25 +9,25 @@
 ### 언어
 
 - JavaScript
-- Typescript
+- [TypeScript](https://www.typescriptlang.org/)
 
 ### 프런트엔드
 
-- React
-- React Bootstrap
+- [React](https://reactjs.org/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
 
 ### 테스트 도구
 
-- Jest
-- Cypress
+- [Jest](https://jestjs.io/)
+- [Cypress](https://docs.cypress.io/)
 
 ### 배포
 
-- Vercel
+- [Vercel](https://vercel.com/)
 
 ### 그 외
 
-- 구글 폰트
+- [Google Fonts](https://fonts.google.com/)
 
 ## 구현 기능
 
