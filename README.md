@@ -1,6 +1,6 @@
 # 요트 다이스
 
-보드 게임 [요트 다이스]([https://www.koreaboardgames.com/boardgame/game_view.php?prd_idx=17111](https://divedice.com/shop/detail.php?pno=39BA1389E2930FF24E3101741C9009EA&rURL=https%3A%2F%2Fdivedice.com%2Fshop%2Fsearch_result.php%3Fsearch_str%3D%25EC%259A%2594%25ED%258A%25B8%26x%3D0%26y%3D0&ctype=1&cno1=))를 리액트로 구현했습니다.
+보드 게임 [요트 다이스](https://divedice.com/shop/detail.php?pno=39BA1389E2930FF24E3101741C9009EA&rURL=https%3A%2F%2Fdivedice.com%2Fshop%2Fsearch_result.php%3Fsearch_str%3D%25EC%259A%2594%25ED%258A%25B8%26x%3D0%26y%3D0&ctype=1&cno1=)를 React로 구현했습니다.
 
 요트 다이스는 주사위를 굴리고 족보를 만들어서 높은 점수를 노리는 게임입니다. 게임 규칙은 [유튜브](https://youtu.be/yXno1hggmbw)에서 확인할 수 있습니다.
 
